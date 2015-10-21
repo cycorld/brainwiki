@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021025709) do
+ActiveRecord::Schema.define(version: 20151021030656) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "vid"
     t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "synapses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "origin_id"
+    t.integer  "next_id"
+    t.integer  "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
