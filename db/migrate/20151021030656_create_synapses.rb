@@ -8,5 +8,9 @@ class CreateSynapses < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :synapses, :user_id
+    add_index :synapses, :origin_id
+    add_index :synapses, :next_id
+    add_index :synapses, [:origin_id, :next_id], unique: true
   end
 end

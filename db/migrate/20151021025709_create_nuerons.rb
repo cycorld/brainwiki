@@ -8,5 +8,7 @@ class CreateNuerons < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :nuerons, :user_id
+    add_index :nuerons, :title
   end
 end

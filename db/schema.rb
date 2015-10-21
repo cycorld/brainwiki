@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20151021030656) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "nuerons", ["title"], name: "index_nuerons_on_title"
+  add_index "nuerons", ["user_id"], name: "index_nuerons_on_user_id"
+
   create_table "synapses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "origin_id"
@@ -30,5 +33,10 @@ ActiveRecord::Schema.define(version: 20151021030656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "synapses", ["next_id"], name: "index_synapses_on_next_id"
+  add_index "synapses", ["origin_id", "next_id"], name: "index_synapses_on_origin_id_and_next_id", unique: true
+  add_index "synapses", ["origin_id"], name: "index_synapses_on_origin_id"
+  add_index "synapses", ["user_id"], name: "index_synapses_on_user_id"
 
 end
