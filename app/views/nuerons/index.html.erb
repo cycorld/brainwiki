@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nuerons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Vid</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nuerons.each do |nueron| %>
+      <tr>
+        <td><%= nueron.user_id %></td>
+        <td><%= nueron.title %></td>
+        <td><%= nueron.vid %></td>
+        <td><%= nueron.note %></td>
+        <td><%= link_to 'Show', nueron %></td>
+        <td><%= link_to 'Edit', edit_nueron_path(nueron) %></td>
+        <td><%= link_to 'Destroy', nueron, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nueron', new_nueron_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @nueron.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @nueron.title %>
+</p>
+
+<p>
+  <strong>Vid:</strong>
+  <%= @nueron.vid %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @nueron.note %>
+</p>
+
+<%= link_to 'Edit', edit_nueron_path(@nueron) %> |
+<%= link_to 'Back', nuerons_path %>
