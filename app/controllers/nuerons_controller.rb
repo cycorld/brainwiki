@@ -1,5 +1,6 @@
 class NueronsController < ApplicationController
   before_action :set_nueron, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :create, :destroy]
 
   # GET /nuerons
   # GET /nuerons.json
@@ -25,6 +26,7 @@ class NueronsController < ApplicationController
   # POST /nuerons.json
   def create
     @nueron = Nueron.new(nueron_params)
+    @nueron.user_id = current_user.id
 
     respond_to do |format|
       if @nueron.save
@@ -69,6 +71,6 @@ class NueronsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nueron_params
-      params.require(:nueron).permit(:user_id, :title, :vid, :note)
+      params.require(:nueron).permit(:title, :vid, :note)
     end
 end
