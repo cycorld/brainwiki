@@ -6,3 +6,7 @@
 
 - 체계적으로 정리 : "다른 사람들이 쉽게 이해할 수 있는"
 - 인류의 혁신 : "인간의 한계를 극복"
+
+## References
+
+- [D3.js - Curved Links](http://bl.ocks.org/mbostock/4600693)
