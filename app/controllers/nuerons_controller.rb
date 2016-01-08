@@ -6,6 +6,7 @@ class NueronsController < ApplicationController
   # GET /nuerons.json
   def index
     @nuerons = Nueron.all
+    @synapses = Synapse.all
   end
 
   # GET /nuerons/1
