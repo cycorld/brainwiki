@@ -27,16 +27,23 @@
 			return
 		force.nodes(nuerons).links(synapses).start()
 		link = svg.selectAll('.link').data(bisynapses).enter().append('path').attr('class', 'link')
-		node = svg.selectAll('.node').data(graph.nuerons).enter().append('circle').attr('class', 'node').attr('r', 5).style('fill', (d) ->
+		node = svg.selectAll('.node').data(graph.nuerons).enter().append('circle').attr('class', 'node').attr('r', 4).style('fill', (d) ->
 			color d.user_id
 		).call(force.drag)
 		node.append('title').text (d) ->
-			d.name
+			d.title
+		text = svg.append("svg:g").selectAll("g").data(graph.nuerons).enter().append("svg:g");
+		text.append('svg:text').attr('x', 8).attr('y', '.31em').text (d) ->
+			d.title
 		force.on 'tick', ->
 			link.attr 'd', (d) ->
 				'M' + d[0].x + ',' + d[0].y + 'S' + d[1].x + ',' + d[1].y + ' ' + d[2].x + ',' + d[2].y
 			node.attr 'transform', (d) ->
 				'translate(' + d.x + ',' + d.y + ')'
-			return
+			text.attr 'transform', (d) ->
+				'translate(' + d.x + ',' + d.y + ')'
 		return
 	return
+
+@show_nueron = (n) ->
+	window.location.href = '/nuerons/' + n
