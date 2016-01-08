@@ -63,6 +63,12 @@ class NueronsController < ApplicationController
     end
   end
 
+  # GET /nuerons/1/to/2
+  def link
+    Synapse.create(pair_params)
+    redirect_to :root
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_nueron
@@ -72,5 +78,9 @@ class NueronsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def nueron_params
       params.require(:nueron).permit(:title, :vid, :note)
+    end
+
+    def pair_params
+      params.permit(:origin_id, :next_id)
     end
 end

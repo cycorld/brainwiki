@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :nuerons
+  get 'nuerons/:origin_id/to/:next_id' => 'nuerons#link'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
