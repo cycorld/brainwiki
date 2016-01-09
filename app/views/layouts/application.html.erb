@@ -10,6 +10,12 @@
 
 <h1><%= link_to 'Plurry', root_path %></h1>
 <p>All Knowledges in the Web</p>
+<% if user_signed_in? %>
+  <%= link_to 'sign out', destroy_user_session_path, method: 'delete' %>
+<% else %>
+  <%= link_to 'sign in', new_user_session_path %>
+  <%= link_to 'sign up', new_user_registration_path %>
+<% end %>
 
 <%= yield %>
 
