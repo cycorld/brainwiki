@@ -1,7 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create(email: 'choi@plurry.net', password: '12341234', password_confirmation: '12341234')
+
+n1 = Nueron.create(user_id: user.id, title: '성시경-너는 나의 봄이다', vid: 'zKWJtr8iXkE', note: '성시경 메들리 갑니다')
+n2 = Nueron.create(user_id: user.id, title: '만약에', vid: 'OrpDmvrBOX0', note: '만약에..')
+n3 = Nueron.create(user_id: user.id, title: '내게 오는길', vid: 'IHzhtHkjUWE', note: '지금 곁에서 딴 생각에 잠겨 걷고 있는 그대')
+n4 = Nueron.create(user_id: user.id, title: '한번 더 이별', vid: 'GLN8f1iDNqc', note: '뒤돌아보면 너의 생각을 떠올린게 언제였더라')
+n5 = Nueron.create(user_id: user.id, title: '그대 내게 다시', vid: 'IY50YVQJ8GU', note: '변진섭 - 그대 내게 다시 (1992), 김형석 작곡')
+n6 = Nueron.create(user_id: user.id, title: '안녕 나의 사랑', vid: 'JuvS-MMXsrE', note: '여름냄새 벌써 이거리에 시간이 흐르네 눈부신 햇살 얼굴을 가리며 빨갛게 손끝으로 문들어가')
+n7 = Nueron.create(user_id: user.id, title: '미소천사', vid: 'BrwIGAC8MLg', note: 'The 만지다 마지막.')
+n8 = Nueron.create(user_id: user.id, title: '우린 제법 잘어울려요', vid: 'zrW6H6JlDJY', note: '저기 그대 가고 있네요. 오늘도 같은 시간이죠. 오늘도 젖은 머리로 날 스쳐지나가죠')
+n9 = Nueron.create(user_id: user.id, title: '넌 감동이었어', vid: 'MGmMmkTPEME', note: '미련하게 아무도 모를 것 같아 태연한 척 지나왔어 너가 떠나버린 뒤 다알았대 어설픈 나의 눈빛이')
+n10 = Nueron.create(user_id: user.id, title: '난 좋아', vid: '5ygcb-ICESg', note: '')
+
+n11 = Nueron.create(user_id: user.id, title: '내게 오는 길', vid: '_Mg4CxqvIwk', note: '')
+n12 = Nueron.create(user_id: user.id, title: '난 좋아 + 너는 나의 봄이다', vid: 'YnEkgsHauLA', note: '')
+n13 = Nueron.create(user_id: user.id, title: '넌 감동이었어', vid: 'KG0bzrgLpp8', note: '미련하게 아무도 모를 것 같아 태연한 척 지나왔어 너가 떠나버린 뒤 다알았대 어설픈 나의 눈빛이')
+
+
+s1 = Synapse.create(user_id: user.id, origin_id: 1, next_id: 2)
+s2 = Synapse.create(user_id: user.id, origin_id: 2, next_id: 3)
+s3 = Synapse.create(user_id: user.id, origin_id: 3, next_id: 4)
+s4 = Synapse.create(user_id: user.id, origin_id: 4, next_id: 5)
+s6 = Synapse.create(user_id: user.id, origin_id: 5, next_id: 6)
+s7 = Synapse.create(user_id: user.id, origin_id: 6, next_id: 7)
+s8 = Synapse.create(user_id: user.id, origin_id: 7, next_id: 8)
+s9 = Synapse.create(user_id: user.id, origin_id: 8, next_id: 9)
+s10 = Synapse.create(user_id: user.id, origin_id: 9, next_id: 10)
+
+s11 = Synapse.create(user_id: user.id, origin_id: 3, next_id: 11)
+s12 = Synapse.create(user_id: user.id, origin_id: 1, next_id: 12)
+s13 = Synapse.create(user_id: user.id, origin_id: 10, next_id: 12)
+s14 = Synapse.create(user_id: user.id, origin_id: 9, next_id: 13)
