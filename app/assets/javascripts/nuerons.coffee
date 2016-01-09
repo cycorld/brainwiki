@@ -35,7 +35,7 @@
 			return
 		mouseenter = ->
 			d3.select(this).select('circle').transition().duration(750).attr('r', 16).style 'fill', 'lightsteelblue'
-			d3.select(this).select('text').transition().duration(750).attr('x', 12).style('stroke', 'none').style('fill', 'black').style('stroke', 'none').style 'font', '10px sans-serif'
+			d3.select(this).select('text').transition().duration(750).attr('x', 20).style('stroke', 'none').style('fill', 'black').style('stroke', 'none').style 'font', '20px sans-serif'
 			return
 		mouseleave = ->
 			d3.select(this).select('circle').transition().duration(750).attr('r', 6).style 'fill', (d) ->

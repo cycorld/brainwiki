@@ -2,52 +2,42 @@
 <html>
 <head>
   <title>Plurry</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<ul id="nuerons-nav" class="dropdown-content">
+  <li><a href="/nuerons">Nuerons List</a></li>
+  <li class="divider"></li>
+  <li><a href="/nuerons/new">Create New</a></li>
+</ul>
 <nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Plurry</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Navbar Link</a></li>
+      <li><a href="/">All Nuerons</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="nuerons-nav">Nuerons<i class="material-icons right">arrow_drop_down</i></a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.email, '/' %></li>
+        <li><%= link_to 'sign out', destroy_user_session_path, method: 'delete' %></li>
+      <% else %>
+        <li><%= link_to 'sign in', new_user_session_path %></li>
+        <li><%= link_to 'sign up', new_user_registration_path %></li>
+      <% end %>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Navbar Link</a></li>
+      <li><a href="/">All Nuerons</a></li>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>
 
-<div class="app-bar">
-  <a class="app-bar-element" href="/">Plurry</a>
-  <span class="app-bar-divider"></span>
-  <ul class="app-bar-menu">
-    <li><a href="/">All Nuerons</a></li>
-    <li>
-      <a href="#" class="dropdown-toggle">Nuerons</a>
-      <ul class="d-menu" data-role="dropdown">
-        <li><a href="/nuerons">Nuerons list</a></li>
-        <li><a href="/nuerons/new">Add nueron</a></li>
-      </ul>
-    </li>
-    <% if user_signed_in? %>
-      <li>
-        <a href="" class="dropdown-toggle"><%=current_user.email%></a>
-        <ul class="d-menu" data-role="dropdown">
-          <li><%= link_to 'mypage', '/' %></li>
-          <li><%= link_to 'sign out', destroy_user_session_path, method: 'delete' %></li>
-        </ul>
-      </li>
-    <% else %>
-      <li><%= link_to 'sign in', new_user_session_path %></li>
-      <li><%= link_to 'sign up', new_user_registration_path %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <%= yield %>
 </div>
-
-<%= yield %>
 
 </body>
 </html>
