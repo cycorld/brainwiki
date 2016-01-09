@@ -1,0 +1,2 @@
+class SynapsesController < ApplicationController
+end
