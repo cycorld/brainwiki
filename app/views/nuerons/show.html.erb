@@ -17,16 +17,15 @@
   <%= @nueron.title %>
 </p>
 
-<p>
-  <strong>Vid:</strong>
-  <%= @nueron.vid %>
-</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @nueron.vid %>" frameborder="0" allowfullscreen></iframe>
+<div class="video-container">
+  <iframe width="853" height="480" src="https://www.youtube.com/embed/<%= @nueron.vid %>" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <p>
-  <strong>Note:</strong>
-  <%= @nueron.note %>
+  <strong>강의노트</strong>
+  <pre>
+    <%= @nueron.note %>
+  </pre>
 </p>
 
 <p>
@@ -39,4 +38,4 @@
 </p>
 
 <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
-<%= link_to 'Back', nuerons_path %>
+<%= link_to 'Back', nuerons_path(o: @nueron.token) %>
