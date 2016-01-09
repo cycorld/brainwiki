@@ -9,7 +9,7 @@
 <% @nuerons.each do |n| %>
   <% if n.prev.empty? %>
     <div class="col s12 m6">
-      <div class="card small">
+      <div class="card small hoverable">
         <div class="card-image waves-effect waves-block waves-light">
           <a href="/show/<%=n.token%>"><img class="activator" src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
         </div>

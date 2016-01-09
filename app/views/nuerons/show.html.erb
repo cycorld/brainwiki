@@ -1,44 +1,42 @@
+<h3><%= @nueron.title %></h3>
 <p>
-  <strong>선행 뉴런</strong>
-  <ul>
-    <% @nueron.prev.each do |n| %>
-      <li><%= link_to n.title, n %></li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @nueron.title %>
+  by <%= @nueron.user.email.split('@')[0] %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
 </p>
 
 <div class="video-container">
   <iframe width="853" height="480" src="https://www.youtube.com/embed/<%= @nueron.vid %>" frameborder="0" allowfullscreen></iframe>
 </div>
 
-<p>
-  <strong>강의노트</strong>
-  <pre>
+<div class="row">
+  <div class="col s12">
+    <strong>강의노트</strong>
+    <pre>
     <%= @nueron.note %>
-  </pre>
-</p>
-
-<p>
-  <strong>후속 뉴런</strong>
-  <ul>
-    <% @nueron.next.each do |n| %>
-      <li><%= link_to n.title, n %></li>
+    </pre>
+  </div>
+  <div class="col s6">
+    <strong>선행 뉴런</strong>
+    <ul>
+      <% if @nueron.prev.empty? %>
+        <li>선행 뉴런이 없습니다</li>
+      <% end %>
+      <% @nueron.prev.each do |n| %>
+        <li><%= link_to n.title, n %></li>
     <% end %>
-  </ul>
-</p>
-<p>
-  <strong>등록자 : </strong>
-  <%= @nueron.user.email %>
-</p>
-<p>
-  <%= @nueron.created_at %>
-</p>
-
+    </ul>
+  </div>
+  <div class="col s6">
+    <strong>후속 뉴런</strong>
+    <ul>
+      <% if @nueron.next.empty? %>
+        <li>후속 뉴런이 없습니다</li>
+      <% end %>
+      <% @nueron.next.each do |n| %>
+        <li><%= link_to n.title, n %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
 <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
