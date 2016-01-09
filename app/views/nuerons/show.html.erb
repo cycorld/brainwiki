@@ -6,6 +6,15 @@
 </p>
 
 <p>
+  <strong>Previous Nueron</strong>
+  <ul>
+    <% @nueron.prev.each do |n| %>
+      <li><%= link_to n.title, n %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @nueron.title %>
 </p>
@@ -15,9 +24,20 @@
   <%= @nueron.vid %>
 </p>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @nueron.vid %>" frameborder="0" allowfullscreen></iframe>
+
 <p>
   <strong>Note:</strong>
   <%= @nueron.note %>
+</p>
+
+<p>
+  <strong>Next Nueron</strong>
+  <ul>
+    <% @nueron.next.each do |n| %>
+      <li><%= link_to n.title, n %></li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
