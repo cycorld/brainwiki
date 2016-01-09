@@ -9,7 +9,7 @@
 		width
 		height
 	])
-	svg = d3.select('body').append('svg').attr('width', width).attr('height', height)
+	svg = d3.select('#brain').append('svg').attr('width', width).attr('height', height)
 	# build the arrow.
 	svg.append('svg:defs').selectAll('marker').data(['end']).enter().append('svg:marker').attr('id', String).attr('viewBox', '0 -5 10 10').attr('refX', 15).attr('refY', 0).attr('markerWidth', 6).attr('markerHeight', 6).attr('orient', 'auto').append('svg:path').attr 'd', 'M0,-5L10,0L0,5'
 	d3.json '/nuerons.json', (error, graph) ->
