@@ -1,0 +1,23 @@
+<%=form_tag '/synapses' do %>
+<div class="input-field col s12">
+  <select name="prev" class="browser-default">
+    <% unless @prev.nil? %>
+      <option value="<%=@prev.id%>"><%=@prev.title%></option>
+      <option disabled>──────────</option>
+    <% end %>
+    <% @nuerons.each do |n| %>
+      <option value="<%=n.id%>"><%=n.title%></option>
+    <% end %>
+  </select>
+</div>
+<select name="next" class="browser-default">
+  <% unless @next.nil? %>
+    <option value="<%=@next.id%>"><%=@next.title%></option>
+    <option disabled>──────────</option>
+  <% end %>
+  <% @nuerons.each do |n| %>
+    <option value="<%=n.id%>"><%=n.title%></option>
+  <% end %>
+</select>
+<%=submit_tag%>
+<% end %>

@@ -31,7 +31,8 @@ class NueronsController < ApplicationController
 
     respond_to do |format|
       if @nueron.save
-        format.html { redirect_to @nueron, notice: 'Nueron was successfully created.' }
+        session[:recent_created_nueron_id] = @nueron.id
+        format.html { redirect_to new_synapse_path, notice: 'Nueron was successfully created.' }
         format.json { render :show, status: :created, location: @nueron }
       else
         format.html { render :new }
@@ -62,12 +63,6 @@ class NueronsController < ApplicationController
       format.html { redirect_to nuerons_url, notice: 'Nueron was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  # GET /nuerons/1/to/2
-  def link
-    Synapse.create(pair_params)
-    redirect_to :root
   end
 
   private
