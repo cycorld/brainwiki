@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160109141108) do
   end
 
   add_index "nuerons", ["title"], name: "index_nuerons_on_title"
+  add_index "nuerons", ["token"], name: "index_nuerons_on_token"
   add_index "nuerons", ["user_id"], name: "index_nuerons_on_user_id"
 
   create_table "synapses", force: :cascade do |t|
