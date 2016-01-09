@@ -9,6 +9,7 @@ class Nueron < ActiveRecord::Base
                            dependent: :destroy
   has_many :next, through: :active_links, source: :next
   has_many :prev, through: :passive_links, source: :origin
+  belongs_to :user
 
   validates :token, uniqueness: true
 

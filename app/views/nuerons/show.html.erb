@@ -1,10 +1,5 @@
 <p>
-  <strong>User:</strong>
-  <%= @nueron.user_id %>
-</p>
-
-<p>
-  <strong>Previous Nueron</strong>
+  <strong>선행 뉴런</strong>
   <ul>
     <% @nueron.prev.each do |n| %>
       <li><%= link_to n.title, n %></li>
@@ -29,13 +24,21 @@
 </p>
 
 <p>
-  <strong>Next Nueron</strong>
+  <strong>후속 뉴런</strong>
   <ul>
     <% @nueron.next.each do |n| %>
       <li><%= link_to n.title, n %></li>
     <% end %>
   </ul>
 </p>
+<p>
+  <strong>등록자 : </strong>
+  <%= @nueron.user.email %>
+</p>
+<p>
+  <%= @nueron.created_at %>
+</p>
+
 
 <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
 <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
