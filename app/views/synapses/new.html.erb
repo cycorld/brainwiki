@@ -21,3 +21,9 @@
 </select>
 <%=submit_tag%>
 <% end %>
+<% @show = @next || @prev %>
+<% unless @show.nil? %>
+  <a href="/show/<%=@show.token%>"><%=@show.title%> - 바로 가기</a>
+<% else %>
+  <button onclick="window.history.back()">뒤로 가기</button>
+<% end %>
