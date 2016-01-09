@@ -12,3 +12,4 @@
 - [D3.js - Curved Links](http://bl.ocks.org/mbostock/4600693)
 - [D3.js - Node Highlighting](http://bl.ocks.org/d3noob/5141528)
 - [D3.js - Drag/Zoom/Pan/Center/Resize/..](http://bl.ocks.org/eyaler/10586116)
+- [Meterialize Icons](https://design.google.com/icons/)
