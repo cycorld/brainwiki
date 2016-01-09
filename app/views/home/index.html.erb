@@ -1,25 +1,28 @@
-<h1 class="leader">All Knowledges in the Web</h1>
+<h1 class="leader center-align">All Knowledges in the Web</h1>
 <div id="brain">
 </div>
-<h3 class="header">처음부터 시작하기</h3>
-
+<h3 class="header center-align">처음부터 시작하기</h3>
+<div class="row">
 <% @nuerons.each do |n| %>
   <% if n.prev.empty? %>
-  <div class="tile-large" onclick="window.location.href='/show/<%=n.token%>'">
-    <div class="tile-content">
-      <div class="image-container">
-        <div class="frame">
-          <a href="/show/<%=n.token%>"><img src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
+    <div class="col s12 m6">
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <a href="/show/<%=n.token%>"><img class="activator" src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
         </div>
-        <div class="image-overlay">
-          <%=n.title%>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%=n.title%><i class="material-icons right">more_vert</i></span>
+          <p><a href="/show/<%=n.token%>">지금바로 시작하기!</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%=n.title%><i class="material-icons right">close</i></span>
+          <p><%=n.note%></p>
         </div>
       </div>
     </div>
-    <span class="tile-label" style="background-color:lightblue;margin:10px"><%=n.title%></span>
-  </div>
   <% end %>
 <% end %>
+</div>
 
 <script>
 $(document).on('ready', graph_render);
