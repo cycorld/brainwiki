@@ -1,15 +1,15 @@
 <h1 class="leader">All Knowledges in the Web</h1>
 <div id="brain">
 </div>
-<h3 class="header">Surfing Start Points</h3>
+<h3 class="header">처음부터 시작하기</h3>
 
 <% @nuerons.each do |n| %>
   <% if n.prev.empty? %>
-  <div class="tile-large" onclick="window.location.href='/nuerons/<%=n.id%>'">
+  <div class="tile-large" onclick="window.location.href='/show/<%=n.token%>'">
     <div class="tile-content">
       <div class="image-container">
         <div class="frame">
-          <a href="/nuerons/1"><img src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
+          <a href="/show/<%=n.token%>"><img src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
         </div>
         <div class="image-overlay">
           <%=n.title%>

@@ -1,5 +1,5 @@
 json.nuerons @nuerons do |nueron|
-  json.extract! nueron, :id, :title, :user_id
+  json.extract! nueron, :token, :title, :user_id
 end
 
 json.synapses @synapses do |synapse|
