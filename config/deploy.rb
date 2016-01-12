@@ -42,25 +42,6 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-      execute :touch, 'tmp/restart.txt'
-    end
-  end
-  task :assets_precompile do
-    on roles(:web) do
-      execute :rake, 'assets:precompile'
-    end
-  end
-end
-
-namespace :db do
-  task :migrate do
-    on roles(:web) do
-      execute :rake, 'db:migrate RAILS_ENV=production'
-    end
-  end
-  task :seed do
-    on roles(:web) do
-      execute :rake , 'db:seed RAILS_ENV=production'
     end
   end
 end
