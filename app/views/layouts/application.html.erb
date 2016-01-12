@@ -14,7 +14,11 @@
   <li><a href="/synapses/new">뉴런 연결하기</a></li>
 </ul>
 <nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Plurry</a>
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/" class="brand-logo">
+      Plurry
+      <%=image_tag('plurry', height: 40, style: 'padding-top:10px')%>
+    </a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/">뉴런 클라우드 보기</a></li>
       <!-- Dropdown Trigger -->
@@ -52,25 +56,29 @@
 <footer class="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      <div class="col l2 s12">
+        <%=image_tag('plurry', width: 150)%>
       </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
+      <div class="col l4 s12">
+        <h5 class="white-text">플러리</h5>
+        <p class="grey-text text-lighten-4">우리의 궁극적인 목표는 지식을 체계적으로 정리하여 인류의 혁신을 앞당기는 것이다.</p>
+      </div>
+      <div class="col l2 offset-l2 s12">
+        <h5 class="white-text">메뉴</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+          <li><a class="grey-text text-lighten-3" href="/nuerons/new">뉴런 만들기</a></li>
+          <li><a class="grey-text text-lighten-3" href="/synapses/new">시냅스 연결하기</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
-      © 2016 Copyright Plurry
+      Cycorld, 2016
+      <!--
       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      -->
     </div>
   </div>
 </footer>
