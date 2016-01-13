@@ -48,9 +48,6 @@
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>
-<p id="notice"><%= notice %></p>
-<%=flash[:notice]%>
-<%=flash[:alert]%>
 
 <div class="container">
   <%= yield %>
@@ -98,6 +95,17 @@
     </div>
   </div>
 </footer>
+
+<script>
+$(document).ready(function() {
+  <% if flash[:alert] %>
+    Materialize.toast("<%=flash[:alert]%>", 4000)
+  <% end %>
+  <% if flash[:notice] %>
+    Materialize.toast("<%=flash[:notice]%>", 4000)
+  <% end %>
+});
+</script>
 
 </body>
 </html>
