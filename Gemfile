@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'materialize-sass'
 gem 'figaro'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
