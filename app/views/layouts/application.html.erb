@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Plurry</title>
+  <title><%= t('.title')%></title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -16,7 +16,7 @@
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container">
     <a id="logo-container" href="/" class="brand-logo">
-      Plurry
+      <%=t '.title'%>
       <%=image_tag('plurry.svg', height: 40, style: 'padding-top:10px')%>
     </a>
     <ul class="right hide-on-med-and-down">
