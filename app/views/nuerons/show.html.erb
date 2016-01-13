@@ -38,5 +38,9 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_nueron_path(@nueron) %> |
-<%= link_to 'Back', nuerons_path(o: @nueron.token) %>
+<div class="row">
+  <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
+  <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
+</div>
+
+<div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
