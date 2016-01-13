@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113090939) do
+ActiveRecord::Schema.define(version: 20160113092006) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "vid"
     t.text     "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "token"
+    t.boolean  "is_valid",   default: true
   end
 
   add_index "nuerons", ["title"], name: "index_nuerons_on_title"
