@@ -2,7 +2,7 @@ ko:
     layouts:
         application:
             home: '홈'
-            title: '뉴런과 시냅스'
+            title: 'BRAIN WIKI'
             all_list: '전체 리스트'
             create_new_nueron: '새 뉴런 만들기'
             link_nuerons: '뉴런 연결하기'

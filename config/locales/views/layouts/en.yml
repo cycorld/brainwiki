@@ -2,6 +2,6 @@ en:
     layouts:
         application:
             home: 'Home'
-            title: 'Nueron & Synapse'
+            title: 'BRAIN WIKI'
             all_list: 'All List'
             create_new_nueron: 'Create New Nueron'
