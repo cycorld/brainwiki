@@ -1,6 +1,7 @@
 en:
     layouts:
         application:
-            title: 'Plurry'
+            home: 'Home'
+            title: 'Nueron & Synapse'
             all_list: 'All List'
             create_new_nueron: 'Create New Nueron'
