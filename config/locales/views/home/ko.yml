@@ -1,0 +1,8 @@
+ko:
+    home:
+        index:
+            all_knowledges_in_the_universe: '이 세상의 모든 지식'
+            double_click_to_open: '더블 클릭으로 각 노드를 열어볼 수 있습니다'
+            start_here: '처음부터 시작하기'
+            start_now: '지금 바로 시작하기!'
+

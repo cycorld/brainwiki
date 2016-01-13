@@ -1,10 +1,10 @@
-<h1 class="leader center-align">이 세상의 모든 지식</h1>
+<h1 class="leader center-align"><%=t('.all_knowledges_in_the_universe')%></h1>
 <blockquote>
-  더블 클릭으로 각 노드를 열어볼 수 있습니다
+  <%=t('.double_click_to_open')%>
 </blockquote>
 <div id="brain">
 </div>
-<h3 class="header center-align">처음부터 시작하기</h3>
+<h3 class="header center-align"><%=t('.start_here')%></h3>
 <div class="row">
 <% @nuerons.each do |n| %>
   <% if n.prev.empty? %>
@@ -15,7 +15,7 @@
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4"><%=n.title%><i class="material-icons right">more_vert</i></span>
-          <p><a href="/show/<%=n.token%>">지금바로 시작하기!</a></p>
+          <p><a href="/show/<%=n.token%>"><%=t('start_now')%></a></p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%=n.title%><i class="material-icons right">close</i></span>
