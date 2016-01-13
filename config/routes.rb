@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resources :nuerons
     resources :synapses
-    get 'show/:token' => 'home#show'
+    get 'show/:token' => 'home#show', as: 'show'
 
     root 'home#index'
   end

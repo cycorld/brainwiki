@@ -9,18 +9,18 @@
 </head>
 <body>
 <ul id="nuerons-nav" class="dropdown-content">
-  <li><a href="/nuerons"><%=t('.all_list')%></a></li>
-  <li><a href="/nuerons/new"><%=t('.create_new_nueron')%></a></li>
-  <li><a href="/synapses/new"><%=t('.link_nuerons')%></a></li>
+  <li><%= link_to t('.all_list'), nuerons_path %></li>
+  <li><%= link_to t('.create_new_nueron'), new_nueron_path %></li>
+  <li><%= link_to t('.link_nuerons'), new_synapse_path %></li>
 </ul>
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container">
-    <a id="logo-container" href="/" class="brand-logo">
+    <%= link_to root_path, id: 'logo-container', class: 'brand-logo' do %>
       <%=t '.title'%>
       <%=image_tag('plurry.svg', height: 40, style: 'padding-top:10px')%>
-    </a>
+    <% end %>
     <ul class="right hide-on-med-and-down">
-      <li><a href="/"><%=t('.view_cloud')%></a></li>
+      <li><%=link_to t('.view_cloud'), root_path %></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="#!" data-activates="nuerons-nav"><%=t('.nueron_jobs')%><i class="material-icons right">arrow_drop_down</i></a></li>
       <% if user_signed_in? %>
@@ -33,12 +33,12 @@
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="/"><%=t('.home')%></a></li>
-      <li><a href="/nuerons"><%=t('.all_list')%></a></li>
-      <li><a href="/nuerons/new"><%=t('.create_new_nueron')%></a></li>
-      <li><a href="/synapses/new"><%=t('.link_nuerons')%></a></li>
+      <li><%= link_to t('.home'), root_path %></li>
+      <li><%= link_to t('.all_list'), nuerons_path %></li>
+      <li><%= link_to t('.create_new_nueron'), new_nueron_path %></li>
+      <li><%= link_to t('.link_nuerons'), new_synapse_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.email, '/' %></li>
+        <li><%= link_to current_user.email, root_path %></li>
         <li><%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %></li>
       <% else %>
         <li><%= link_to t('.sign_in'), new_user_session_path %></li>
@@ -57,11 +57,15 @@
 </div>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  <a href="/nuerons/new" class="btn-floating btn-large red">
+  <%= link_to new_nueron_path, class: 'btn-floating btn-large red' do %>
     <i class="large material-icons">mode_edit</i>
-  </a>
+  <% end %>
   <ul>
-    <li><a href="/synapses/new" class="btn-floating yellow darken-1"><i class="mdi-communication-call-split">mdi-content-link</i></a></li>
+    <li>
+      <%= link_to new_synapse_path, class: 'btn-floating yello darken-1' do %>
+        <i class="mdi-communication-call-split">mdi-content-link</i>
+      <% end %>
+    </li>
   </ul>
 </div>
 
@@ -79,8 +83,8 @@
         <h5 class="white-text"><%=t('.menu')%></h5>
         <ul>
           <li><a class="grey-text text-lighten-3" href="#!"><%=t('.about')%></a></li>
-          <li><a class="grey-text text-lighten-3" href="/nuerons/new"><%=t('.create_new_nueron')%></a></li>
-          <li><a class="grey-text text-lighten-3" href="/synapses/new"><%=t('.link_nuerons')%></a></li>
+          <li><%= link_to t('.create_new_nueron'), new_nueron_path, class: 'grey-text text-lighten-3' %></li>
+          <li><%= link_to t('.link_nuerons'), new_synapse_path, class: 'grey-text text-lighten-3' %></li>
         </ul>
       </div>
     </div>

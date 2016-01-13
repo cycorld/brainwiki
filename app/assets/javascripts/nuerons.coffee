@@ -27,11 +27,11 @@
 			synapses.push({source: s, target: i}, {source: i, target: t})
 			bisynapses.push([s, i, t])
 			return
-		show_nueron = (token) ->
-			window.location.href = '/show/' + token
+		show_nueron = (url) ->
+			window.location.href = url
 		click = (d) ->
 			console.log('clicked')
-			show_nueron(d.token)
+			show_nueron(d.uri)
 			return
 		mouseenter = ->
 			d3.select(this).select('circle').transition().duration(750).attr('r', 16).style 'fill', 'lightsteelblue'
