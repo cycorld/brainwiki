@@ -16,6 +16,8 @@ class Nueron < ActiveRecord::Base
   validates :title, presence: true
   validates :note, presence: true
 
+  default_scope { where(is_valid: true) }
+
   private
 
   def generate_token
