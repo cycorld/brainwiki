@@ -8,6 +8,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1644556395806936',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <ul id="nuerons-nav" class="dropdown-content">
   <li><%= link_to t('.all_list'), nuerons_path %></li>
   <li><%= link_to t('.create_new_nueron'), new_nueron_path %></li>
@@ -75,6 +92,12 @@
       <div class="col l4 s12">
         <h5 class="white-text"><%=t('.title')%></h5>
         <p class="grey-text text-lighten-4"><%=t('.moto')%></p>
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="450"
+          data-show-faces="true">
+        </div>
       </div>
       <div class="col l2 offset-l2 s12">
         <h5 class="white-text"><%=t('.menu')%></h5>
