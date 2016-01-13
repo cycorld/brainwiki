@@ -1,0 +1,6 @@
+en:
+    layouts:
+        application:
+            title: 'Plurry'
+            all_list: 'All List'
+            create_new_nueron: 'Create New Nueron'

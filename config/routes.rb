@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'home#index'
+  scope "(:locale)", locale: /ko|en/ do
+    devise_for :users
 
-  resources :nuerons
-  resources :synapses
+    resources :nuerons
+    resources :synapses
+    get 'show/:token' => 'home#show', as: 'show'
 
-  get 'show/:token' => 'home#show'
+    root 'home#index'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
