@@ -1,4 +1,5 @@
 class SynapsesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def new
     @nuerons = Nueron.all
     @prev = @nuerons.where(id: session[:recent_nueron_id]).take

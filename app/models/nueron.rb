@@ -12,6 +12,9 @@ class Nueron < ActiveRecord::Base
   belongs_to :user
 
   validates :token, uniqueness: true
+  validates :user_id, presence: true
+  validates :title, presence: true
+  validates :note, presence: true
 
   private
 
