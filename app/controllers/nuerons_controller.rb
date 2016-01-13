@@ -58,7 +58,7 @@ class NueronsController < ApplicationController
   # DELETE /nuerons/1
   # DELETE /nuerons/1.json
   def destroy
-    @nueron.destroy
+    @nueron.update_attribute(:is_valid, false)
     respond_to do |format|
       format.html { redirect_to nuerons_url, notice: 'Nueron was successfully destroyed.' }
       format.json { head :no_content }
