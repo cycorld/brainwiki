@@ -63,10 +63,17 @@ class NueronsController < ApplicationController
   # DELETE /nuerons/1
   # DELETE /nuerons/1.json
   def destroy
-    @nueron.update_attribute(:is_valid, false)
-    respond_to do |format|
-      format.html { redirect_to nuerons_url, notice: 'Nueron was successfully destroyed.' }
-      format.json { head :no_content }
+    if @nueron.user == current_user
+      @nueron.update_attribute(:is_valid, false)
+      respond_to do |format|
+        format.html { redirect_to nuerons_url, notice: 'Nueron was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to nuerons_url, notice: 'You do not have permission.' }
+        format.json { head :no_content }
+      end
     end
   end
 
