@@ -41,7 +41,7 @@
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="#!" data-activates="nuerons-nav"><%=t('.nueron_jobs')%><i class="material-icons right">arrow_drop_down</i></a></li>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.username, '/' %></li>
+        <li><%= link_to current_user.username, edit_user_registration_path %></li>
         <li><%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %></li>
       <% else %>
         <li><%= link_to t('.sign_in'), new_user_session_path %></li>
@@ -55,7 +55,7 @@
       <li><%= link_to t('.create_new_nueron'), new_nueron_path %></li>
       <li><%= link_to t('.link_nuerons'), new_synapse_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.username, root_path %></li>
+        <li><%= link_to current_user.username, edit_user_registration_path %></li>
         <li><%= link_to t('.sign_out'), destroy_user_session_path, method: 'delete' %></li>
       <% else %>
         <li><%= link_to t('.sign_in'), new_user_session_path %></li>
