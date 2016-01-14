@@ -9,13 +9,13 @@
 
 <div class="row">
   <div class="col s12">
-    <strong>강의노트</strong>
-    <pre>
-    <%= @nueron.note %>
-    </pre>
+    <h4>강의노트</h4>
+    <div id="note-body" class="markdown-body">
+      <%= @nueron.note %>
+    </div>
   </div>
   <div class="col s6">
-    <strong>선행 뉴런</strong>
+    <h5>선행 뉴런</h5>
     <ul>
       <% if @nueron.prev.empty? %>
         <li>선행 뉴런이 없습니다</li>
@@ -26,7 +26,7 @@
     </ul>
   </div>
   <div class="col s6">
-    <strong>후속 뉴런</strong>
+    <h5>후속 뉴런</h5>
     <ul>
       <% if @nueron.next.empty? %>
         <li>후속 뉴런이 없습니다</li>
@@ -44,3 +44,9 @@
 </div>
 
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
+
+<script>
+$(function() {
+    $("#note-body").html(marked('<%=escape_javascript(@nueron.note)%>'));
+});
+</script>

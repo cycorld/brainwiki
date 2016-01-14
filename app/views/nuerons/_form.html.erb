@@ -19,11 +19,26 @@
     <%= f.text_field :vid %>
     <%= f.label :vid %><br>
   </div>
-  <div class="input-field">
-    <%= f.text_area :note %>
-    <%= f.label :note %><br>
+  <div class="row">
+    <div class="col l6 s12">
+      <div class="input-field">
+        <%= f.text_area :note, id: 'text-input', rows: 6, cols: 60 %>
+        <%= f.label :note %><br>
+      </div>
+    </div>
+    <div class="col l6 s12">
+      <div id="preview" class="markdown-body">
+      </div>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+$(function() {
+  $("#text-input").on("keyup", function() {
+    $("#preview").html(marked(this.value));
+  });
+});
+</script>
