@@ -18,6 +18,8 @@ class Nueron < ActiveRecord::Base
 
   default_scope { where(is_valid: true) }
 
+  has_paper_trail
+
   private
 
   def generate_token

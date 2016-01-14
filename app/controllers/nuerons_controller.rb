@@ -44,8 +44,13 @@ class NueronsController < ApplicationController
   # PATCH/PUT /nuerons/1
   # PATCH/PUT /nuerons/1.json
   def update
+    if @nueron.user == current_user
+      result = @nueron.update(nueron_params)
+    else
+      result = @nueron.update(params.require(:nueron).permit(:note))
+    end
     respond_to do |format|
-      if @nueron.update(nueron_params)
+      if result
         format.html { redirect_to @nueron, notice: 'Nueron was successfully updated.' }
         format.json { render :show, status: :ok, location: @nueron }
       else
