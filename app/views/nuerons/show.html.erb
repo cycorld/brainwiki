@@ -1,6 +1,6 @@
 <h3><%= @nueron.title %></h3>
 <p>
-  by <%= @nueron.user.email.split('@')[0] %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
+  by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
 </p>
 
 <div class="video-container">

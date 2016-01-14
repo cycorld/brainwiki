@@ -11,21 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114043445) do
+ActiveRecord::Schema.define(version: 20160114052004) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "vid"
     t.text     "note"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "token"
-    t.boolean  "is_valid",   default: true
+    t.boolean  "is_valid",       default: true
+    t.integer  "update_user_id"
   end
 
   add_index "nuerons", ["title"], name: "index_nuerons_on_title"
   add_index "nuerons", ["token"], name: "index_nuerons_on_token"
+  add_index "nuerons", ["update_user_id"], name: "index_nuerons_on_update_user_id"
   add_index "nuerons", ["user_id"], name: "index_nuerons_on_user_id"
 
   create_table "startings", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160114043445) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
