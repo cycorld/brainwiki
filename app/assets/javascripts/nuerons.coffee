@@ -40,7 +40,7 @@
 		mouseleave = ->
 			d3.select(this).select('circle').transition().duration(750).attr('r', 6).style 'fill', (d) ->
 				color d.user_id
-			d3.select(this).select('text').transition().duration(750).attr('x', 12).style('stroke', 'none').style('fill', 'black').style('stroke', 'none').style 'font', '10px sans-serif'
+			d3.select(this).select('text').transition().duration(750).attr('x', 12).style('stroke', 'none').style('fill', 'black').style('stroke', 'none').style('font', '0px sans-serif')
 			return
 		force.nodes(nuerons).links(synapses).start()
 		link = svg.append('svg:g').selectAll('.link').data(bisynapses).enter().append('path').attr('class', 'link').attr('marker-end', 'url(#end)')
