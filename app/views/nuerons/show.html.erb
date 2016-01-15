@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script src="http://bramp.github.io/js-sequence-diagrams/js/raphael-min.js"></script>
+<script src="http://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script>
+<script src="http://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <h3><%= @nueron.title %></h3>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
@@ -47,6 +52,10 @@
 
 <script>
 $(function() {
+    hljs.initHighlightingOnLoad();
     $("#note-body").html(marked('<%=escape_javascript(@nueron.note)%>'));
+    $('pre code.lang-squence').each(function(i, block) {
+      $(this).sequenceDiagram({theme: 'simple'});
+    });
 });
 </script>
