@@ -15,6 +15,8 @@ class StartingsController < ApplicationController
   # GET /startings/new
   def new
     @starting = Starting.new
+    @nuerons = Nueron.all
+    @prev = @nuerons.where(id: session[:recent_nueron_id]).take
   end
 
   # GET /startings/1/edit
@@ -25,6 +27,8 @@ class StartingsController < ApplicationController
   # POST /startings.json
   def create
     @starting = Starting.new(starting_params)
+    @starting.nueron_id = params[:start]
+    @starting.user_id = current_user.id
 
     respond_to do |format|
       if @starting.save

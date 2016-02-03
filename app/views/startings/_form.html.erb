@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nueron_id %><br>
-    <%= f.number_field :nueron_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
+    <div class="input-field col s12">
+      <select name="start" class="browser-default">
+        <% unless @prev.nil? %>
+          <option value="<%=@prev.id%>"><%=@prev.title%></option>
+          <option disabled>──────────</option>
+        <% end %>
+        <% @nuerons.each do |n| %>
+          <option value="<%=n.id%>"><%=n.title%></option>
+        <% end %>
+      </select>
+    </div>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
