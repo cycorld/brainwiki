@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Startings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nueron</th>
+      <th>User</th>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @startings.each do |starting| %>
+      <tr>
+        <td><%= starting.nueron_id %></td>
+        <td><%= starting.user_id %></td>
+        <td><%= starting.title %></td>
+        <td><%= starting.subtitle %></td>
+        <td><%= starting.description %></td>
+        <td><%= link_to 'Show', starting %></td>
+        <td><%= link_to 'Edit', edit_starting_path(starting) %></td>
+        <td><%= link_to 'Destroy', starting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Starting', new_starting_path %>
