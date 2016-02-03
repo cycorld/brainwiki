@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :startings
     devise_for :users
 
+    resources :quizzes, only: [:create]
+
     resources :nuerons
     resources :synapses
     get 'show/:token' => 'home#show', as: 'show'
