@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @nuerons = Nueron.all
-    @synapses = Synapse.all
+    @startings = Starting.all
   end
 
   def show

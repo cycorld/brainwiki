@@ -32,7 +32,7 @@ class StartingsController < ApplicationController
 
     respond_to do |format|
       if @starting.save
-        format.html { redirect_to @starting, notice: 'Starting was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Starting was successfully created.' }
         format.json { render :show, status: :created, location: @starting }
       else
         format.html { render :new }

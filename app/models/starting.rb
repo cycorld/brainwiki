@@ -1,3 +1,3 @@
 class Starting < ActiveRecord::Base
-  has_many :nuerons
+  belongs_to :nueron
 end
