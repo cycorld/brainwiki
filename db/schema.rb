@@ -11,39 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114052004) do
+ActiveRecord::Schema.define(version: 20160203102229) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "vid"
     t.text     "note"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "token"
-    t.boolean  "is_valid",       default: true
-    t.integer  "update_user_id"
+    t.boolean  "is_valid",   default: true
   end
 
   add_index "nuerons", ["title"], name: "index_nuerons_on_title"
   add_index "nuerons", ["token"], name: "index_nuerons_on_token"
-  add_index "nuerons", ["update_user_id"], name: "index_nuerons_on_update_user_id"
   add_index "nuerons", ["user_id"], name: "index_nuerons_on_user_id"
 
+  create_table "quizzes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "nueron_id"
+    t.string   "question"
+    t.string   "answers"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "startings", force: :cascade do |t|
+    t.integer  "nueron_id"
+    t.integer  "user_id"
     t.string   "title"
     t.string   "subtitle"
     t.text     "description"
-    t.integer  "user_id"
-    t.integer  "nueron_id"
-    t.string   "image"
-    t.boolean  "is_open",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "startings", ["nueron_id"], name: "index_startings_on_nueron_id"
-  add_index "startings", ["user_id"], name: "index_startings_on_user_id"
 
   create_table "synapses", force: :cascade do |t|
     t.integer  "user_id"
