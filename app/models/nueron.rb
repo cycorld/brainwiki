@@ -10,6 +10,7 @@ class Nueron < ActiveRecord::Base
   has_many :next, through: :active_links, source: :next
   has_many :prev, through: :passive_links, source: :origin
   belongs_to :user
+  has_many :quizzes
 
   validates :token, uniqueness: true
   validates :user_id, presence: true
