@@ -1,1 +1,8 @@
 en:
+    home:
+        index:
+            all_knowledges_in_the_universe: 'All knowledges in the universe'
+            double_click_to_open: 'With double click, you can open each node'
+            start_here: 'Start from head'
+            start_now: 'Start right now!'
+
