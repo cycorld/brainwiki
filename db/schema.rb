@@ -38,16 +38,6 @@ ActiveRecord::Schema.define(version: 20160203102229) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "startings", force: :cascade do |t|
-    t.integer  "nueron_id"
-    t.integer  "user_id"
-    t.string   "title"
-    t.string   "subtitle"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "synapses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "origin_id"

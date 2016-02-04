@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /ko|en/ do
     devise_for :users
 
-    resources :quizzes, only: [:create]
 
-    resources :nuerons
+    resources :nuerons do
+      resources :quizzes, only: [:create, :new]
+    end
     resources :synapses
     get 'show/:token' => 'home#show', as: 'show'
 

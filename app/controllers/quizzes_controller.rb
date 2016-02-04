@@ -1,10 +1,16 @@
 class QuizzesController < ApplicationController
+  def new
+    @nueron = Nueron.find(params[:nueron_id])
+    @quiz  = Quiz.new
+  end
+
   def create
-    @nueron = Nueron.find(params[:id])
+    @nueron = Nueron.find(params[:nueron_id])
     @quiz = Quiz.new(quiz_params)
     @quiz.user_id = current_user.id
     @quiz.nueron_id = @nueron.id
-    redirect_to root_path
+    @quiz.save
+    redirect_to @nueron
   end
 
   private
