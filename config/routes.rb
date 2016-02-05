@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
     resources :nuerons do
-      resources :quizzes, only: [:create, :new]
+      resources :quizzes, only: [:create, :new, :show]
     end
     resources :synapses
     get 'show/:token' => 'home#show', as: 'show'

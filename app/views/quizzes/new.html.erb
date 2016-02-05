@@ -15,11 +15,19 @@
     <%= f.text_field :question %>
     <%= f.label :question %><br>
   </div>
-  <div class="input-field">
-    <%= f.text_field :answers %>
-    <%= f.label :answers %><br>
+  <button type="button" id="plus">답안 만들기</button>
+  <div class="input-field" id="answerform">
+    <%= f.hidden_field :answers %>
+      <input type="text" class="foranswer">
+    <%# f.label :answers %><br>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<br><br><br>
+
+
+  <div class="sth">
+  </div>
