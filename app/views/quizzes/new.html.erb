@@ -15,13 +15,14 @@
     <%= f.text_field :question %>
     <%= f.label :question %><br>
   </div>
+  <button type="button" class="waves-effect waves-light btn-large" id="plus" style="margin-bottom:10px;">답안 만들기</button>
+  <h5> 첫 번째 답안이 정답이 되게 만들어 주세요. </h5>
   <div class="input-field" id="answerform">
     <%= f.label :answers %>
     <%= f.hidden_field :answers %>
       <input type="text" class="foranswer">
   </div>
-  <button type="button" class="waves-effect waves-light btn-large" id="plus" style="margin-bottom:10px;">답안 만들기</button>
-  <div class="actions">
+  <div class="actions" style="clear:both;">
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
       <i class="material-icons right">send</i>
     </button>

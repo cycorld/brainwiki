@@ -1,6 +1,11 @@
-<%= @quiz.question %>
-<% @quiz.answers.each do |a| %>
-  <li><%= a %> </li>
-<% end %>
+<form action="#">
+  <%= @quiz.question %>
+  <% @quiz.answers.each do |a| %>
+  <p>
+  <input name="group1" type="radio" id=<%= @quiz.answers.index("#{a}")%>/>
+    <label for="test1"><%= a %></label>
+  </p>
+  <% end %>
+</form>
 
 <%= link_to 'Back', show_path(token: @nueron.token) %>
