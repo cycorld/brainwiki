@@ -1,5 +1,7 @@
 # ProjectN
 
+[![Build Status](https://travis-ci.org/cycorld/brainwiki.svg?branch=master)](https://travis-ci.org/cycorld/brainwiki)
+
 ## Goal
 
 > "나의 궁극적인 목표는 지식을 체계적으로 정리하여 인류의 혁신을 앞당기는 것이다."
