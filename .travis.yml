@@ -1,3 +1,12 @@
 language: ruby
 rvm:
-    - 2.3.0
+  - 2.3.0
+cache: bundler
+before_install:
+  - gem install bundler
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - RAILS_ENV=test bundle exec rake
+notifications:
+  recipients:
+    - cycorld.com@gmail.com
