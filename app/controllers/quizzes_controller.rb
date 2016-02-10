@@ -13,10 +13,10 @@ class QuizzesController < ApplicationController
     quiz.nueron_id = @nueron.id
     quiz.question = params[:quiz][:question]
     quiz.answers = JSON.parse(params[:quiz][:answers])
-    arr = params[:quiz][:answers]
-    puts "*******************************"
-    puts arr
-    quiz.order = params[:quiz][:order]
+    quiz.order = params[:quiz][:id]
+    puts '**********************************'
+    puts quiz.question
+    puts quiz.answers.index
     quiz.save
     redirect_to nueron_quiz_path(@nueron, quiz)
   end
