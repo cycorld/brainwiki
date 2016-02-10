@@ -1,5 +1,6 @@
 <form action="#">
   <%= @quiz.question %>
+  <%# @quiz.answers[:array][0] %>
   <% @quiz.answers.each do |a| %>
   <p>
   <input name="group1" type="radio" id=<%= @quiz.answers.index("#{a}")%>/>
