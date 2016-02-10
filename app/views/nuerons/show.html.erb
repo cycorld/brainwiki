@@ -48,6 +48,7 @@
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
 <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+<%#= link_to '퀴즈 풀러 가기', nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
 
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
 

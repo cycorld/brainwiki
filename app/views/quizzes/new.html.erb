@@ -15,14 +15,17 @@
     <%= f.text_field :question %>
     <%= f.label :question %><br>
   </div>
-  <button type="button" id="plus">답안 만들기</button>
   <div class="input-field" id="answerform">
+    <%= f.label :answers %>
     <%= f.hidden_field :answers %>
       <input type="text" class="foranswer">
-    <%# f.label :answers %><br>
   </div>
+  <button type="button" class="waves-effect waves-light btn-large" id="plus" style="margin-bottom:10px;">답안 만들기</button>
   <div class="actions">
-    <%= f.submit %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+    <%# f.submit %>
   </div>
 <% end %>
 
