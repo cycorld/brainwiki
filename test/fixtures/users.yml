@@ -6,8 +6,10 @@
 #
 one:
     email: "a@a.com"
+    username: 'a'
     encrypted_password: "a0s9d8f7g6h5"
 
 two:
     email: "b@b.com"
+    username: 'b'
     encrypted_password: "a0s9d8f7g6h5"

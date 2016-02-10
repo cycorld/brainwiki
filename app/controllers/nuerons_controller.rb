@@ -1,6 +1,6 @@
 class NueronsController < ApplicationController
   before_action :set_nueron, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
 
   # GET /nuerons
   # GET /nuerons.json

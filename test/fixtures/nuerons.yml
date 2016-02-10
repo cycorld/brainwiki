@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
+  user: one
   title: MyString
   vid: MyString
   note: MyText
+  token: aaaa
 
 two:
-  user_id: 2
+  user: two
   title: MyString
   vid: MyString
-  note: MyText
+  note: MyTexT
+  token: bbbb

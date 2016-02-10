@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SynapseTest < ActiveSupport::TestCase
   def setup
-    @synapse = Synapse.new(origin_id: 1, next_id: 2)
+    @synapse = Synapse.new(origin_id: 1, next_id: 2, user_id: 1)
   end
 
   test "should be valid" do
