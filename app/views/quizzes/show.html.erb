@@ -1,0 +1,6 @@
+<%= @quiz.question %>
+<% @quiz.answers.each do |a| %>
+  <li><%= a %> </li>
+<% end %>
+
+<%= link_to 'Back', show_path(token: @nueron.token) %>
