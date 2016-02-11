@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     resources :nuerons do
       resources :quizzes, only: [:create, :new, :show]
+      get 'quizzes/:id/check' => 'quizzes#check', as: 'check'
     end
     resources :synapses
     get 'show/:token' => 'home#show', as: 'show'
