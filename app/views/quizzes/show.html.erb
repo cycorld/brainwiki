@@ -1,11 +1,17 @@
 <form action="#">
   <%= @quiz.question %>
   <%# @quiz.answers[:array][0] %>
-  <% @quiz.answers.each do |a| %>
+  <% @quiz.answers[:array].each do |a|%>
   <p>
-  <input name="group1" type="radio" id=<%= @quiz.answers.index("#{a}")%>/>
+  <input name="group1" type="radio" />
     <label for="test1"><%= a %></label>
   </p>
+  <% end %>
+
+  <br><br><br>
+
+  <% @quiz.answers.each do |a| %>
+    <%= a %>
   <% end %>
 </form>
 
