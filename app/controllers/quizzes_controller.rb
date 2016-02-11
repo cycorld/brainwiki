@@ -3,7 +3,7 @@ class QuizzesController < ApplicationController
 
   def index
     @nueron = Nueron.find(params[:nueron_id])
-    @quizzes = Quiz.all
+    @quizzes = @nueron.quizzes
   end
 
   def new

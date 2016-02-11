@@ -42,10 +42,34 @@
   <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Maker</th>
+      <th>Solve the quiz</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizzes.each do |q| %>
+      <tr>
+        <td><%= q.question %></td>
+        <td>
+          <%= q.user.email %><br>
+        </td>
+        <td><%= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
 <% if current_user.id == @nueron.user_id %>
   <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
 <%end %>
 
+  <%= link_to '퀴즈 목록 보기', nueron_quizzes_path(@nueron), class: "waves-effect waves-light btn-large" %>
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
 
 <script>
