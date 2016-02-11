@@ -20,8 +20,8 @@
   <div class="input-field" id="answerform">
     <%= f.label :answers %>
     <%= f.hidden_field :answers %>
-    <%# f.hidden_field :corrects %>
-      <input type="checkbox" class="answer_checkbox" name="quiz[correct]" value="true" style="position:relative; left:0; opacity:1; float:right;"/>
+    <%= f.hidden_field :correct %>
+      <input type="checkbox" class="answer_checkbox" name="quiz[correct]" value="1" style="position:relative; left:0; opacity:1; float:right;"/>
       <input type="text" class="foranswer">
   </div>
   <div class="actions" style="clear:both;">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203102229) do
+ActiveRecord::Schema.define(version: 20160211023220) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160203102229) do
     t.integer  "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "correct"
   end
 
   create_table "synapses", force: :cascade do |t|
