@@ -1,22 +1,10 @@
-<form action="#">
+<%= form_tag(nueron_check_path, method: "get") do %>
   <%= @quiz.question %>
   <% @quiz.answers[:array].shuffle.each do |a|%>
-    <p>
-    <input name="group1" type="radio" />
+    <input class="with-gap" name="answer" type="radio" value=<%=a %> style="left:0; position:relative; opacity:1;"/>
     <label for="test1"><%= a %></label>
-    </p>
   <% end %>
-
-  <% @quiz.answers[:is_correct].each do |b|%>
-    <p>
-    <label for="test1"><%= b %></label>
-    </p>
-  <% end %>
-  <br><br><br>
-
-  <% @quiz.answers.each do |a| %>
-    <%= a %>
-  <% end %>
-</form>
+  <input type="submit">
+<% end %>
 
 <%= link_to 'Back', show_path(token: @nueron.token) %>

@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show]
+  before_action :set_quiz, only: [:show, :check]
 
   def new
     @nueron = Nueron.find(params[:nueron_id])
@@ -24,6 +24,18 @@ class QuizzesController < ApplicationController
 
   def show
     @nueron = Nueron.find(params[:nueron_id])
+  end
+
+  def check
+    @params_answer = params[:answer]
+    index = @quiz.answers[:array].index(@params_answer)
+    if @quiz.answers[:is_correct][index] == 'true'
+      @ment = "Correct Answer"
+    else
+      @ment = "Incorrect Answer"
+    end
+    puts '***************************************'
+    puts @quiz.answers[:is_correct][index]
   end
 
   private
