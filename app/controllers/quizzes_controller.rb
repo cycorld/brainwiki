@@ -13,7 +13,7 @@ class QuizzesController < ApplicationController
     quiz.nueron_id = @nueron.id
     quiz.question = params[:quiz][:question]
     quiz.answers[:array] = JSON.parse(params[:quiz][:answers])
-    quiz.answers[:correct] = JSON.parse(params[:quiz][:answers])
+    quiz.answers[:correct] = JSON.parse(params[:quiz][:correct])
     puts '**********************************'
     puts quiz.answers
     quiz.save
