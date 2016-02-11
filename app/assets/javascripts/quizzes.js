@@ -15,7 +15,7 @@ $(document).on('ready page:load', function(){
     $('#quiz_correct').val(JSON.stringify(correctArray));
   });
   $('#plus').click(function(){
-    $('input:checkbox:not(:checked)').val(0);
+    $('input:checkbox:not(:checked)').val("false");
     var value = $('.foranswer').last().val();
     var correct_value = $('.answer_checkbox').last().val();
     answerArray.push(value);

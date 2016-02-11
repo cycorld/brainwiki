@@ -30,12 +30,10 @@ class QuizzesController < ApplicationController
     @params_answer = params[:answer]
     index = @quiz.answers[:array].index(@params_answer)
     if @quiz.answers[:is_correct][index] == 'true'
-      @ment = "Correct Answer"
+      @message = "Correct Answer"
     else
-      @ment = "Incorrect Answer"
+      @message = "Incorrect Answer"
     end
-    puts '***************************************'
-    puts @quiz.answers[:is_correct][index]
   end
 
   private
