@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Maker</th>
+      <th>Solve the quiz</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizzes.each do |q| %>
+      <tr>
+        <td><%= q.question %></td>
+        <td>
+          <%= q.user.email %><br>
+        </td>
+        <td><%= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

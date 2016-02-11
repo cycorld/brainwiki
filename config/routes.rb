@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
     resources :nuerons do
-      resources :quizzes, only: [:create, :new, :show]
+      resources :quizzes, only: [:create, :new, :show, :index]
       get 'quizzes/:id/check' => 'quizzes#check', as: 'check'
     end
     resources :synapses

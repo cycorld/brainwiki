@@ -1,6 +1,11 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :check]
 
+  def index
+    @nueron = Nueron.find(params[:nueron_id])
+    @quizzes = Quiz.all
+  end
+
   def new
     @nueron = Nueron.find(params[:nueron_id])
     @quiz  = Quiz.new
