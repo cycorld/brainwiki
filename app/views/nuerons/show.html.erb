@@ -42,28 +42,62 @@
   <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th>Maker</th>
-      <th>Solve the quiz</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @quizzes.each do |q| %>
+<!--
+<div class="under_nueron">
+  <table>
+    <thead>
       <tr>
-        <td><%= q.question %></td>
-        <td>
-          <%= q.user.email %><br>
-        </td>
-        <td><%= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
+        <th>Question</th>
+        <th>Maker</th>
+        <th>Solve the quiz</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+    </thead>
+
+    <tbody>
+      <%# @quizzes.each do |q| %>
+        <tr>
+          <td><%#= q.question %></td>
+          <td>
+            <%#= q.user.email %><br>
+          </td>
+          <td><%#= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
+        </tr>
+      <%# end %>
+    </tbody>
+  </table>
+</div>
+-->
+
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @quizzes.each do |q| %>
+  <li>
+  <!--<div class="collapsible-header"><%#= q.question%>  |  <%#= q.user.email %></div> -->
+    <div class="collapsible-header">
+      <table>
+        <tr>
+          <th> Question </th>
+          <th> Maker </th>
+        </tr>
+        <tr>
+          <td><%= q.question %> </td>
+          <td><%= q.user.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="collapsible-body" style="padding:1em;">
+      <%= form_tag(nueron_check_path(@nueron, q), method: "get") do %>
+        <%= q.question %>
+        <% q.answers[:array].shuffle.each do |a|%>
+          <input class="with-gap" name="answer" type="radio" value=<%=a %> style="left:0; position:relative; opacity:1;"/>
+          <label for="test1"><%= a %></label>
+        <% end %>
+        <input type="submit">
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+</ul>
 
 <% if current_user.id == @nueron.user_id %>
   <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>

@@ -4,6 +4,14 @@ class QuizzesController < ApplicationController
   def index
     @nueron = Nueron.find(params[:nueron_id])
     @quizzes = @nueron.quizzes
+
+    respond_to do |format|
+      format.json do
+        render json: @quizzes
+      end
+
+      format.html
+    end
   end
 
   def new
