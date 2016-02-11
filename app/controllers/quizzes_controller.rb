@@ -13,9 +13,9 @@ class QuizzesController < ApplicationController
     quiz.nueron_id = @nueron.id
     quiz.question = params[:quiz][:question]
     quiz.answers[:array] = JSON.parse(params[:quiz][:answers])
-    quiz.answers[:correct] = params[:quiz][:correct]
+    quiz.answers[:correct] = JSON.parse(params[:quiz][:answers])
     puts '**********************************'
-    puts quiz.answers[:array][0]
+    puts quiz.answers
     quiz.save
     redirect_to nueron_quiz_path(@nueron, quiz)
   end
