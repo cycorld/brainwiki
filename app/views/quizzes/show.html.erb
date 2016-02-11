@@ -1,13 +1,17 @@
 <form action="#">
   <%= @quiz.question %>
-  <%# @quiz.answers[:array][0] %>
-  <% @quiz.answers[:array].each do |a|%>
-  <p>
-  <input name="group1" type="radio" />
+  <% @quiz.answers[:array].shuffle.each do |a|%>
+    <p>
+    <input name="group1" type="radio" />
     <label for="test1"><%= a %></label>
-  </p>
+    </p>
   <% end %>
 
+  <% @quiz.answers[:is_correct].each do |b|%>
+    <p>
+    <label for="test1"><%= b %></label>
+    </p>
+  <% end %>
   <br><br><br>
 
   <% @quiz.answers.each do |a| %>
