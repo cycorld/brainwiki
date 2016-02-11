@@ -15,15 +15,15 @@
     <%= f.text_field :question %>
     <%= f.label :question %><br>
   </div>
-  <button type="button" class="waves-effect waves-light btn-large" id="plus" style="margin-bottom:10px;">답안 만들기</button>
   <h5> 만든 답안이 답이라면 오른쪽에 체크박스에 체크해주세요. </h5>
   <div class="input-field" id="answerform">
-    <%= f.label :answers %>
+    <%= f.label :answers, :style =>"margin-left: 10px" %>
     <%= f.hidden_field :answers %>
     <%= f.hidden_field :correct %>
-      <input type="checkbox" class="answer_checkbox" name="quiz_correct" value="true" style="position:relative; left:0; opacity:1; float:right;"/>
-      <input type="text" class="foranswer">
+      <input type="checkbox" class="answer_checkbox" name="quiz_correct" value="true" style="position:relative; left:0; margin-top:1.3em; margin-right:10px; opacity:1; float:left;"/>
+      <input type="text" class="foranswer" style="width:98%;">
   </div>
+  <button type="button" class="waves-effect waves-light btn-large" id="plus" style="margin-bottom:10px;">답안 만들기</button>
   <div class="actions" style="clear:both;">
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
       <i class="material-icons right">send</i>
