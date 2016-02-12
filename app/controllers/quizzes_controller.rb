@@ -41,11 +41,13 @@ class QuizzesController < ApplicationController
     @index = params[:answer]
     index = @index.to_i
  #   index = @quiz.answers[:array].index(@params_answer)
+
     if @quiz.answers[:is_correct][index] == 'true'
-      @message = "Correct Answer"
+      render json: {success: true}
     #  redirect_to nueron_path(@nueron)
     else
       @message = "Incorrect Answer"
+      render json: {success: false}
     #  redirect_to nueron_path(@nueron)
     end
   end

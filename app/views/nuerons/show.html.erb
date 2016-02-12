@@ -71,7 +71,7 @@
           </p>
           <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>/>
         <% end %>
-        <button class="btn waves-effect waves-light" type="submit" onclick="Materialize.toast('I am a toast', 4000)" name="action">Submit
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
           <i class="material-icons right">send</i>
         </button>
       <% end %>
@@ -79,12 +79,6 @@
   </li>
   <% end %>
 </ul>
-
-
-
-
-<div id="hihihi">
-</div>
 
 <% if current_user.id == @nueron.user_id %>
   <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
