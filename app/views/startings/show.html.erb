@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nueron:</strong>
+  <%= @starting.nueron_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @starting.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @starting.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @starting.subtitle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @starting.description %>
+</p>
+
+<%= link_to 'Edit', edit_starting_path(@starting) %> |
+<%= link_to 'Back', startings_path %>

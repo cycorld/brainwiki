@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /ko|en/ do
+    resources :startings
     devise_for :users
 
     resources :nuerons

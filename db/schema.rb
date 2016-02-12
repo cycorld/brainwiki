@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114052004) do
+ActiveRecord::Schema.define(version: 20160203062331) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160114052004) do
   add_index "nuerons", ["title"], name: "index_nuerons_on_title"
   add_index "nuerons", ["token"], name: "index_nuerons_on_token"
   add_index "nuerons", ["user_id"], name: "index_nuerons_on_user_id"
+
+  create_table "startings", force: :cascade do |t|
+    t.integer  "nueron_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "synapses", force: :cascade do |t|
     t.integer  "user_id"

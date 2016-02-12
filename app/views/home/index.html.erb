@@ -6,25 +6,26 @@
 </div>
 <h3 class="header center-align"><%=t('.start_here')%></h3>
 <div class="row">
-<% @nuerons.each do |n| %>
-  <% if n.prev.empty? %>
+  <% @startings.each do |s| %>
     <div class="col s12 m6">
       <div class="card small hoverable">
         <div class="card-image waves-effect waves-block waves-light">
-          <a href="/show/<%=n.token%>"><img class="activator" src="http://i1.ytimg.com/vi/<%=n.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
+          <a href="/show/<%=s.nueron.token%>"><img class="activator" src="http://i1.ytimg.com/vi/<%=s.nueron.vid%>/hqdefault.jpg" data-role="fitImage" data-format="square"></a>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%=n.title%><i class="material-icons right">more_vert</i></span>
-          <p><%=link_to t('.start_now'), show_path(n.token) %></p>
+          <span class="card-title activator grey-text text-darken-4"><%=s.title%><i class="material-icons right">more_vert</i></span>
+          <p><%=link_to t('.start_now'), show_path(s.nueron.token) %></p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%=n.title%><i class="material-icons right">close</i></span>
-          <p><%=n.note%></p>
+          <span class="card-title grey-text text-darken-4"><%=s.nueron.title%><i class="material-icons right">close</i></span>
+          <hr>
+          <h6><%=s.subtitle%></h6>
+          <p><%=s.description%></p>
+          <p><%=link_to t('.start_now'), show_path(s.nueron.token) %></p>
         </div>
       </div>
     </div>
   <% end %>
-<% end %>
 </div>
 
 <script>

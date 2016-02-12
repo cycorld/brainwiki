@@ -41,6 +41,7 @@
     <% end %>
     <ul class="right hide-on-med-and-down">
       <li><%=link_to t('.view_cloud'), root_path %></li>
+      <li><%=link_to "시작 포인트 설정하기", new_starting_path %></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="#!" data-activates="nuerons-nav"><%=t('.nueron_jobs')%><i class="material-icons right">arrow_drop_down</i></a></li>
       <% if user_signed_in? %>
