@@ -47,9 +47,8 @@
 
 <ul class="collapsible popout" data-collapsible="accordion">
   <% @quizzes.each do |q| %>
-  <input type="hidden" class="hidden_nueron_id" value=<%= q.nueron_id %>/>
   <li>
-    <div class="collapsible-header">
+  <div class="collapsible-header <%=q.id%>">
       <table>
         <tr>
           <th> Question </th>
@@ -68,8 +67,8 @@
           <p style="padding:1em;">
           <input class="with-gap" name="answer" type="radio" value=<%=q.answers[:array].index(a) %> id=<%=q.answers[:array].index(a)%><%= a %>>
           <label for=<%=q.answers[:array].index(a)%><%= a %>><%= a %></label>
+          <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>>
           </p>
-          <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>/>
         <% end %>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
           <i class="material-icons right">send</i>
@@ -93,7 +92,6 @@
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
 <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
-<%#= link_to '퀴즈 풀러 가기', nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
 
 <!--
 <div class="under_nueron">
