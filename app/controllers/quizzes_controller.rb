@@ -38,8 +38,9 @@ class QuizzesController < ApplicationController
 
   def check
     @nueron = Nueron.find(params[:nueron_id])
-    @params_answer = params[:answer]
-    index = @quiz.answers[:array].index(@params_answer)
+    @index = params[:answer]
+    index = @index.to_i
+ #   index = @quiz.answers[:array].index(@params_answer)
     if @quiz.answers[:is_correct][index] == 'true'
       @message = "Correct Answer"
     #  redirect_to nueron_path(@nueron)
