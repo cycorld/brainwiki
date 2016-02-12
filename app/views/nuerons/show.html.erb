@@ -43,12 +43,89 @@
   </div>
 </div>
 
+<h4> 퀴즈 목록 </h4>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @quizzes.each do |q| %>
+  <input type="hidden" class="hidden_nueron_id" value=<%= q.nueron_id %>/>
+  <li>
+    <div class="collapsible-header">
+      <table>
+        <tr>
+          <th> Question </th>
+          <th> Maker </th>
+        </tr>
+        <tr>
+          <td style="width:50%; padding:0;"><%= q.question %> </td>
+          <td style="width:50%; padding:0;"><%= q.user.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="collapsible-body" style="padding:1em;">
+      <%= form_tag(nueron_check_path(@nueron, q), method: "get", ajax: "true") do %>
+        <b> 질문</b>: <%= q.question %><br>
+        <% q.answers[:array].shuffle.each do |a|%>
+          <p style="padding:1em;">
+          <input class="with-gap" name="answer" type="radio" value=<%=a %> id=<%=a%> />
+          <label for=<%= a%>><%= a %></label>
+          </p>
+          <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>/>
+        <% end %>
+        <button class="btn waves-effect waves-light" type="submit" onclick="Materialize.toast('I am a toast', 4000)" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+
+
+
+<div id="hihihi">
+</div>
+
+<% if current_user.id == @nueron.user_id %>
+  <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+<%end %>
+
+  <%= link_to '퀴즈 목록 보기', nueron_quizzes_path(@nueron), class: "waves-effect waves-light btn-large" %>
+
+<br><br><br><br>
+
 <div class="row">
   <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
 <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
 <%#= link_to '퀴즈 풀러 가기', nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+
+<!--
+<div class="under_nueron">
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Maker</th>
+        <th>Solve the quiz</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%# @quizzes.each do |q| %>
+        <tr>
+          <td><%#= q.question %></td>
+          <td>
+            <%#= q.user.email %><br>
+          </td>
+          <td><%#= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
+        </tr>
+      <%# end %>
+    </tbody>
+  </table>
+</div>
+-->
 
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
 

@@ -13,7 +13,8 @@ class NueronsController < ApplicationController
   # GET /nuerons/1.json
   def show
     quiz = Quiz.new
-    @quizzes = Quiz.all
+    @nueron = Nueron.find(params[:id])
+    @quizzes = @nueron.quizzes
   end
 
   # GET /nuerons/new
