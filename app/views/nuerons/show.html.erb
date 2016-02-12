@@ -42,6 +42,7 @@
 
 <ul class="collapsible popout" data-collapsible="accordion">
   <% @quizzes.each do |q| %>
+  <input type="hidden" class="hidden_nueron_id" value=<%= q.nueron_id %>/>
   <li>
     <div class="collapsible-header">
       <table>
@@ -56,13 +57,14 @@
       </table>
     </div>
     <div class="collapsible-body" style="padding:1em;">
-      <%= form_tag(nueron_check_path(@nueron, q), method: "get") do %>
+      <%= form_tag(nueron_check_path(@nueron, q), method: "get", ajax: "true") do %>
         <b> 질문</b>: <%= q.question %><br>
-        <% q.answers[:array].shuffle.each_with_index do |a, index|%>
+        <% q.answers[:array].shuffle.each do |a|%>
           <p style="padding:1em;">
-          <input class="with-gap" name="answer" type="radio" value=<%=a %> id=<%=index%> />
-          <label for=<%=index%>><%= a %></label>
+          <input class="with-gap" name="answer" type="radio" value=<%=a %> id=<%=a%> />
+          <label for=<%= a%>><%= a %></label>
           </p>
+          <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>/>
         <% end %>
         <button class="btn waves-effect waves-light" type="submit" onclick="Materialize.toast('I am a toast', 4000)" name="action">Submit
           <i class="material-icons right">send</i>
@@ -72,6 +74,12 @@
   </li>
   <% end %>
 </ul>
+
+
+
+
+<div id="hihihi">
+</div>
 
 <% if current_user.id == @nueron.user_id %>
   <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>

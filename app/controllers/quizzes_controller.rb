@@ -28,7 +28,8 @@ class QuizzesController < ApplicationController
     quiz.answers[:array] = JSON.parse(params[:quiz][:answers])
     quiz.answers[:is_correct] = JSON.parse(params[:quiz][:correct])
     quiz.save
-    redirect_to nueron_quiz_path(@nueron, quiz)
+    redirect_to nueron_path(@nueron)
+#    redirect_to nueron_quiz_path(@nueron, quiz)
   end
 
   def show
@@ -41,8 +42,10 @@ class QuizzesController < ApplicationController
     index = @quiz.answers[:array].index(@params_answer)
     if @quiz.answers[:is_correct][index] == 'true'
       @message = "Correct Answer"
+    #  redirect_to nueron_path(@nueron)
     else
       @message = "Incorrect Answer"
+    #  redirect_to nueron_path(@nueron)
     end
   end
 

@@ -1,7 +1,7 @@
 <%= form_tag(nueron_check_path, method: "get") do %>
   <%= @quiz.question %>
   <% @quiz.answers[:array].shuffle.each do |a|%>
-    <input class="with-gap" name="answer" type="radio" value=<%=a %> style="left:0; position:relative; opacity:1;"/>
+    <input class="with-gap" name="answer" type="radio" value=<%=a %> />
     <label for="test1"><%= a %></label>
   <% end %>
   <input type="submit">
