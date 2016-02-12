@@ -1,4 +1,4 @@
-# ProjectN
+# Brainwiki
 
 [![Build Status](https://travis-ci.org/cycorld/brainwiki.svg?branch=master)](https://travis-ci.org/cycorld/brainwiki)
 
