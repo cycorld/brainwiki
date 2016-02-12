@@ -59,8 +59,8 @@
       <%= form_tag(nueron_check_path(@nueron, q), method: "get") do %>
         <b> 질문</b>: <%= q.question %><br>
         <% q.answers[:array].shuffle.each_with_index do |a, index|%>
-          <p>
-          <input class="with-gap" name="answer" type="radio" value=<%=a %> id=<%=index%> style="left:0; position:relative; opacity:1;"/>
+          <p style="padding:1em;">
+          <input class="with-gap" name="answer" type="radio" value=<%=a %> id=<%=index%> />
           <label for=<%=index%>><%= a %></label>
           </p>
         <% end %>
