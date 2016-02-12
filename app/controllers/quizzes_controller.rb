@@ -36,6 +36,7 @@ class QuizzesController < ApplicationController
   end
 
   def check
+    @nueron = Nueron.find(params[:nueron_id])
     @params_answer = params[:answer]
     index = @quiz.answers[:array].index(@params_answer)
     if @quiz.answers[:is_correct][index] == 'true'
