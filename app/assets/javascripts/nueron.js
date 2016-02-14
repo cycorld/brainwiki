@@ -12,8 +12,6 @@ $(document).ready(function(e) {
     var form_data = $(this).serialize();
     var form_url = $(this).attr("action");
     var form_method = $(this).attr("method").toUpperCase();
-    console.log($('.collapsible-header.'+quiz_id));
-    $('.collapsible-header.'+quiz_id).css("border", "2px solid yellowgreen");
     $.ajax({
       url: form_url,
       type: form_method,
@@ -22,9 +20,10 @@ $(document).ready(function(e) {
       success: function(res){
         if(res.success) {
           Materialize.toast('정답', 5000)
+          $('.collapsible-header.'+quiz_id).css("border", "2px solid yellowgreen");
         } else {
           Materialize.toast('오답', 5000)
-          //$("#hihihi").html("틀림");
+          $('.collapsible-header.'+quiz_id).css("border", "2px solid red");
         }
       }
     });
