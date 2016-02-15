@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215090855) do
+ActiveRecord::Schema.define(version: 20160215122343) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
@@ -103,5 +103,13 @@ ActiveRecord::Schema.define(version: 20160215090855) do
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+
+  create_table "view_histories", force: :cascade do |t|
+    t.integer  "count"
+    t.integer  "nueron_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
