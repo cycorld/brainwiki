@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(e) {
-  $("form[ajax=true]").submit(function(e) {
+  $('#new_quiz_history').submit(function(e) {
 //  var quiz_id = $('.collapsible-header.'+quiz_id+'.active').next('.collapsible-body').find('input:checked');
 //    var quiz_id = $('.collapsible-header.'+quiz_id+'.active').data("id");
     var quiz_id = $('.collapsible-header.active').data("id");

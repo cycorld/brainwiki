@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  get 'quiz_histories/create'
+
   scope "(:locale)", locale: /ko|en/ do
     resources :startings
     devise_for :users
 
 
     resources :nuerons do
-      resources :quizzes, only: [:create, :new, :show, :index]
-      get 'quizzes/:id/check' => 'quizzes#check', as: 'check'
+      resources :quizzes, only: [:create, :new, :show, :index] do
+        resources :quiz_histories, only:[:create]
+      end
     end
     resources :synapses
     get 'show/:token' => 'home#show', as: 'show'

@@ -36,22 +36,6 @@ class QuizzesController < ApplicationController
     @nueron = Nueron.find(params[:nueron_id])
   end
 
-  def check
-    @nueron = Nueron.find(params[:nueron_id])
-    @index = params[:answer]
-    index = @index.to_i
- #   index = @quiz.answers[:array].index(@params_answer)
-
-    if @quiz.answers[:is_correct][index] == 'true'
-      render json: {success: true}
-    #  redirect_to nueron_path(@nueron)
-    else
-      @message = "Incorrect Answer"
-      render json: {success: false}
-    #  redirect_to nueron_path(@nueron)
-    end
-  end
-
   private
     def set_quiz
       @quiz = Quiz.find_by(id: params[:id], nueron_id: params[:nueron_id])

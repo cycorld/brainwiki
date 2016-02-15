@@ -15,6 +15,7 @@ class NueronsController < ApplicationController
     quiz = Quiz.new
     @nueron = Nueron.find(params[:id])
     @quizzes = @nueron.quizzes
+    @quiz_history = QuizHistory.new
   end
 
   # GET /nuerons/new

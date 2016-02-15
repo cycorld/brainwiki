@@ -61,13 +61,13 @@
       </table>
     </div>
     <div class="collapsible-body" style="padding:1em;">
-      <%= form_tag(nueron_check_path(@nueron, q), method: "get", ajax: "true") do %>
+      <%= form_for([@nueron, q, @quiz_history]) do |h| %>
         <b> 질문</b>: <%= q.question %><br>
         <% q.answers[:array].shuffle.each do |a|%>
           <p style="padding:1em;">
           <input class="with-gap" name="answer" type="radio" value=<%=q.answers[:array].index(a) %> id=<%=q.answers[:array].index(a)%><%= a %>>
           <label for=<%=q.answers[:array].index(a)%><%= a %>><%= a %></label>
-          <input type="hidden" class="hidden_quiz_id" value=<%= q.id%>>
+          <input type="hidden" class="hidden_quiz_id" name="quiz_id" value=<%= q.id%>>
           </p>
         <% end %>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -91,33 +91,6 @@
   <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
-<%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
-
-<!--
-<div class="under_nueron">
-  <table>
-    <thead>
-      <tr>
-        <th>Question</th>
-        <th>Maker</th>
-        <th>Solve the quiz</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%# @quizzes.each do |q| %>
-        <tr>
-          <td><%#= q.question %></td>
-          <td>
-            <%#= q.user.email %><br>
-          </td>
-          <td><%#= link_to 'solve this problem', nueron_quiz_path(@nueron, q) %></td>
-        </tr>
-      <%# end %>
-    </tbody>
-  </table>
-</div>
--->
 
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
 
