@@ -16,6 +16,7 @@ class NueronsController < ApplicationController
     @nueron = Nueron.find(params[:id])
     @quizzes = @nueron.quizzes
     @quiz_history = QuizHistory.new
+    ViewHistory.create(nueron: @nueron, user: current_user)
   end
 
   # GET /nuerons/new
@@ -35,6 +36,7 @@ class NueronsController < ApplicationController
 
     respond_to do |format|
       if @nueron.save
+
         session[:recent_created_nueron_id] = @nueron.id
         format.html { redirect_to new_synapse_path, notice: 'Nueron was successfully created.' }
         format.json { render :show, status: :created, location: @nueron }

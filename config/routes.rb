@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'view_histories/create'
+
   get 'quiz_histories/create'
 
   scope "(:locale)", locale: /ko|en/ do
