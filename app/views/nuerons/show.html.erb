@@ -48,7 +48,7 @@
 <ul class="collapsible popout" data-collapsible="accordion">
   <% @quizzes.each do |q| %>
   <li>
-  <div class="collapsible-header <%=q.id%>">
+  <div class="collapsible-header <%=q.id%>" data-id=<%=q.id%>>
       <table>
         <tr>
           <th> Question </th>
