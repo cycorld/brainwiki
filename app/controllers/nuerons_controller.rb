@@ -16,7 +16,6 @@ class NueronsController < ApplicationController
     @nueron = Nueron.find(params[:id])
     @quizzes = @nueron.quizzes
     @quiz_history = QuizHistory.new
-    ViewHistory.create(nueron: @nueron, user: current_user)
   end
 
   # GET /nuerons/new
