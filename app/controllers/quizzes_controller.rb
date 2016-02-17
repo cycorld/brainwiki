@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
     quiz.answers[:is_correct] = JSON.parse(params[:quiz][:correct])
     quiz.save
     redirect_to nueron_path(@nueron)
-#    redirect_to nueron_quiz_path(@nueron, quiz)
   end
 
   def show

@@ -3,9 +3,9 @@ class CreateStudylogs < ActiveRecord::Migration
     create_table :studylogs do |t|
       t.integer :nueron_id
       t.integer :user_id
-      t.integer :view_count
-      t.integer :number_of_quiz
-      t.integer :correct_answers
+      t.integer :view_count, default:0
+      t.integer :number_of_quiz, default:0
+      t.integer :correct_answers, default:0
 
       t.timestamps null: false
     end
