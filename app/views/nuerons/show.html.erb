@@ -5,6 +5,8 @@
 <script src="http://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <h3><%= @nueron.title %></h3>
 <h2><%= @nueron.viewcount %></h2>
+<h3>풀은 문제 개수 : <%= @study.number_of_quiz %></h3>
+<h3>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h3>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
 </p>

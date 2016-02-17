@@ -15,6 +15,7 @@ class NueronsController < ApplicationController
     @nueron = Nueron.find(params[:id])
     @quizzes = @nueron.quizzes
     @quiz_history = QuizHistory.new
+    @study = Studylog.find_by(nueron_id: @nueron.id)
   end
 
   # GET /nuerons/new
