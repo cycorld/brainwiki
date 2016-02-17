@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215153938) do
+ActiveRecord::Schema.define(version: 20160217044314) do
 
   create_table "nuerons", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 20160215153938) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "studylogs", force: :cascade do |t|
+    t.integer  "nueron_id"
+    t.integer  "user_id"
+    t.integer  "view_count"
+    t.integer  "number_of_quiz"
+    t.integer  "correct_answers"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "studylogs", ["nueron_id", "user_id"], name: "index_studylogs_on_nueron_id_and_user_id", unique: true
 
   create_table "synapses", force: :cascade do |t|
     t.integer  "user_id"
