@@ -16,7 +16,6 @@ class QuizHistoriesController < ApplicationController
     history.answer = @quiz.answers[:array][index]
     history.correct = @quiz.answers[:is_correct][index]
 
-
     QuizHistory.transaction do
       @study.save
       history.save
