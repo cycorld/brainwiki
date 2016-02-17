@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nueron_id: 1
+  user_id: 1
+  view_count: 1
+  number_of_quiz: 1
+  correct_answers: 1
+
+two:
+  nueron_id: 1
+  user_id: 1
+  view_count: 1
+  number_of_quiz: 1
+  correct_answers: 1
