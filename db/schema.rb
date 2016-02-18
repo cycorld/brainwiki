@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20160217044314) do
     t.integer  "quiz_id"
     t.integer  "nueron_id"
     t.integer  "user_id"
-    t.boolean  "correct"
+    t.boolean  "correct",    default: false
     t.string   "question"
     t.string   "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "quizzes", force: :cascade do |t|

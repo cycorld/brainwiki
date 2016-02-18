@@ -6,6 +6,8 @@ class HomeController < ApplicationController
   def show
     @nueron = Nueron.find_by_token(params[:token])
     session[:recent_nueron_id] = @nueron.id
+    puts '** THIS IS HOME CONTROLLER**'
+    puts @nueron.passive_links.take.id
     @quizzes = @nueron.quizzes
     @quiz_history = QuizHistory.new
     view_history = ViewHistory.new(nueron: @nueron, user: current_user)

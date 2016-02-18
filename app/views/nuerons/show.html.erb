@@ -39,9 +39,14 @@
       <% if @nueron.next.empty? %>
         <li>후속 뉴런이 없습니다</li>
       <% end %>
-      <% @nueron.next.each do |n| %>
-        <li><%= link_to n.title, n %></li>
-    <% end %>
+      <% @nueron.active_links.each do |x| %>
+        <li><%= link_to Nueron.find(x.next_id).title, weight_create_synapse_path(x), method: :post %>
+      <% end %>
+        <!--
+     <%# @nueron.next.each do |n| %>
+       <li><%#= link_to n.title, n %></li>
+    <%# end %>
+    -->
     </ul>
   </div>
 </div>

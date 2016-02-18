@@ -13,7 +13,12 @@ Rails.application.routes.draw do
         resources :quiz_histories, only:[:create]
       end
     end
-    resources :synapses
+    resources :synapses do
+      member do
+        post 'weight_create'
+      end
+    end
+
     get 'show/:token' => 'home#show', as: 'show'
 
     root 'home#index'
