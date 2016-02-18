@@ -5,8 +5,8 @@ class QuizHistoriesController < ApplicationController
     @nueron = Nueron.find(params[:nueron_id])
     @quiz = Quiz.find(params[:quiz_id])
     @quiz_boolean = @quiz.answers[:is_correct][index]
-    @study = Studylog.find_by(nueron_id: @nueron.id)
-    unless QuizHistory.find_by(quiz_id: @quiz.id).present?
+    @study = Studylog.find_by(nueron_id: @nueron.id, user_id: current_user.id)
+    unless QuizHistory.where(quiz_id: @quiz.id, user_id: current_user.id).present?
       @study.number_of_quiz += 1
     end
     history = QuizHistory.new
@@ -21,8 +21,11 @@ class QuizHistoriesController < ApplicationController
     @count_correct_answers = 0
     @quizzes_nueron = @nueron.quizzes
     @quizzes_nueron.each do |x|
-      if QuizHistory.where(quiz_id: x.id).last.correct
-        @count_correct_answers +=1
+      @qu = QuizHistory.where(quiz_id: x.id)
+      if @qu.present?
+        if @qu.last.correct
+          @count_correct_answers +=1
+        end
       end
     end
 

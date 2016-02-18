@@ -4,7 +4,7 @@ class CreateQuizHistories < ActiveRecord::Migration
       t.integer :quiz_id
       t.integer :nueron_id
       t.integer :user_id
-      t.boolean :correct
+      t.boolean :correct, default: false
       t.string :question
       t.string :answer
 

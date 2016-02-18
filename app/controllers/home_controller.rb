@@ -9,9 +9,8 @@ class HomeController < ApplicationController
     @quizzes = @nueron.quizzes
     @quiz_history = QuizHistory.new
     view_history = ViewHistory.new(nueron: @nueron, user: current_user)
-    @study = Studylog.find_by(nueron_id: @nueron.id)
+    @study = Studylog.find_by(nueron_id: @nueron.id, user_id: current_user.id)
     if @study.present?
-      @study = Studylog.find_by(nueron_id: @nueron.id)
       @study.view_count = @study.view_count + 1
     else
       @study = Studylog.new
