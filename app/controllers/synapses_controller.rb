@@ -18,6 +18,10 @@ class SynapsesController < ApplicationController
     @synapse = Synapse.find(params[:id])
     @synapse.update_attribute("weight", @synapse.weight + 1)
 
-    redirect_to nueron_path(@synapse.next_id)
+    if params[:kind] == "active"
+      redirect_to nueron_path(@synapse.next_id)
+    else
+      redirect_to nueron_path(@synapse.origin_id)
+    end
   end
 end

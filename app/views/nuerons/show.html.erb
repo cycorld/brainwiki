@@ -28,9 +28,14 @@
       <% if @nueron.prev.empty? %>
         <li>선행 뉴런이 없습니다</li>
       <% end %>
-      <% @nueron.prev.each do |n| %>
-        <li><%= link_to n.title, n %></li>
-    <% end %>
+      <% @nueron.passive_links.each do |x| %>
+        <li><%= link_to Nueron.find(x.origin_id).title, weight_create_synapse_path(id: x.id, kind: "passive"), method: :post %></li>
+      <% end %>
+      <!--
+      <%# @nueron.prev.each do |n| %>
+        <li><%#= link_to n.title, n %></li>
+    <%# end %>
+    -->
     </ul>
   </div>
   <div class="col s6">
@@ -40,7 +45,7 @@
         <li>후속 뉴런이 없습니다</li>
       <% end %>
       <% @nueron.active_links.each do |x| %>
-        <li><%= link_to Nueron.find(x.next_id).title, weight_create_synapse_path(x), method: :post %>
+        <li><%= link_to Nueron.find(x.next_id).title, weight_create_synapse_path(id: x.id, kind: "active"), method: :post %></li>
       <% end %>
         <!--
      <%# @nueron.next.each do |n| %>
