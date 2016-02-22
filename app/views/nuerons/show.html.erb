@@ -19,7 +19,7 @@
   <div class="col s12">
     <h4>강의노트</h4>
     <div id="note-body" class="markdown-body">
-      <%= @nueron.note %>
+      <%=sanitize render_markdown(@nueron.note).html_safe %>
     </div>
   </div>
   <div class="col s6">
@@ -109,10 +109,9 @@
 
 <script>
 $(function() {
-    hljs.initHighlightingOnLoad();
-    $("#note-body").html(marked('<%=escape_javascript(@nueron.note)%>'));
-    $('pre code.lang-squence').each(function(i, block) {
-      $(this).sequenceDiagram({theme: 'simple'});
-    });
+    // hljs.initHighlightingOnLoad();
+    //$('pre code.lang-squence').each(function(i, block) {
+    //  $(this).sequenceDiagram({theme: 'simple'});
+    //});
 });
 </script>

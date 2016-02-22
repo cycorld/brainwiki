@@ -5,6 +5,8 @@ gem 'materialize-sass'
 gem 'figaro'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
 gem 'paper_trail', '~> 4.0.0'
+gem 'redcarpet'
+gem 'coderay'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
