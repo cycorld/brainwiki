@@ -56,48 +56,49 @@
 </div>
 
 <h4> 퀴즈 목록 </h4>
-
-<ul class="collapsible popout" data-collapsible="accordion">
-  <% @quizzes.each do |q| %>
-  <li>
-  <div class="collapsible-header <%=q.id%>" data-id=<%=q.id%>>
-      <table>
-        <tr>
-          <th> Question </th>
-          <th> Maker </th>
-        </tr>
-        <tr>
-          <td style="width:50%; padding:0;"><%= q.question %> </td>
-          <td style="width:50%; padding:0;"><%= q.user.email %></td>
-        </tr>
-      </table>
-    </div>
-    <div class="collapsible-body" style="padding:1em;">
-      <%= form_for([@nueron, q, @quiz_history]) do |h| %>
-        <b> 질문</b>: <%= q.question %><br>
-        <% q.answers[:array].shuffle.each do |a|%>
-          <p style="padding:1em;">
-          <input class="with-gap" name="answer" type="radio" value=<%=q.answers[:array].index(a) %> id=<%=q.answers[:array].index(a)%><%= a %>>
-          <label for=<%=q.answers[:array].index(a)%><%= a %>><%= a %></label>
-          <input type="hidden" class="hidden_quiz_id" name="quiz_id" value=<%= q.id%>>
-          </p>
+<% unless @nueron.quizzes.first.present? %>
+  퀴즈가 아직 없습니다.
+<% else %>
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <% @quizzes.each do |q| %>
+    <li>
+    <div class="collapsible-header <%=q.id%>" data-id=<%=q.id%>>
+        <table>
+          <tr>
+            <th> Question </th>
+            <th> Maker </th>
+          </tr>
+          <tr>
+            <td style="width:50%; padding:0;"><%= q.question %> </td>
+            <td style="width:50%; padding:0;"><%= q.user.email %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="collapsible-body" style="padding:1em;">
+        <%= form_for([@nueron, q, @quiz_history]) do |h| %>
+          <b> 질문</b>: <%= q.question %><br>
+          <% q.answers[:array].shuffle.each do |a|%>
+            <p style="padding:1em;">
+            <input class="with-gap" name="answer" type="radio" value=<%=q.answers[:array].index(a) %> id=<%=q.answers[:array].index(a)%><%= a %>>
+            <label for=<%=q.answers[:array].index(a)%><%= a %>><%= a %></label>
+            <input type="hidden" class="hidden_quiz_id" name="quiz_id" value=<%= q.id%>>
+            </p>
+          <% end %>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
         <% end %>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-      <% end %>
-    </div>
-  </li>
-  <% end %>
-</ul>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if user_signed_in? %>
   <% if @nueron.user_id == current_user.id %>
     <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
   <%end %>
 <%end %>
-
-  <%= link_to '퀴즈 목록 보기', nueron_quizzes_path(@nueron), class: "waves-effect waves-light btn-large" %>
 
 <br><br><br><br>
 
