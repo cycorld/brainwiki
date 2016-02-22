@@ -12,10 +12,8 @@ class NueronsController < ApplicationController
   # GET /nuerons/1
   # GET /nuerons/1.json
   def show
-    @nueron = Nueron.find(params[:id])
-    @quizzes = @nueron.quizzes
-    @quiz_history = QuizHistory.new
-    @study = Studylog.find_by(nueron_id: @nueron.id, user_id: current_user.id)
+    nueron = Nueron.find(params[:id])
+    redirect_to show_path(nueron.token)
   end
 
   # GET /nuerons/new
