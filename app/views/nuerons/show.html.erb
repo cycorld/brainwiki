@@ -13,8 +13,8 @@
 <% end %>
 <h6 style="float:right; margin:2.5rem 0 0 0">ViewCount : <%= @nueron.viewcount %></h6>
 <% if user_signed_in? %>
-  <h5>풀은 문제 개수 : <%= @study.number_of_quiz %></h5>
-  <h5>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h5>
+  <h6 style="clear:both;">풀은 문제 개수 : <%= @study.number_of_quiz %></h6>
+  <h6>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h6>
 <% end %>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
