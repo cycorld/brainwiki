@@ -3,11 +3,18 @@
 <script src="http://bramp.github.io/js-sequence-diagrams/js/raphael-min.js"></script>
 <script src="http://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script>
 <script src="http://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
-<h3><%= @nueron.title %></h3>
-<h2><%= @nueron.viewcount %></h2>
+<h3 style="float:left;"><%= @nueron.title %></h3>
+
+<% @nueron.tag_list.each do |tag| %>
+<div class="chip">
+  <i class="material-icons" style="float:left; padding: 0 8px 0 0;">label</i>
+  <%= tag %>
+</div>
+<% end %>
+<h6 style="float:right; margin:2.5rem 0 0 0">ViewCount : <%= @nueron.viewcount %></h6>
 <% if user_signed_in? %>
-  <h3>풀은 문제 개수 : <%= @study.number_of_quiz %></h3>
-  <h3>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h3>
+  <h5>풀은 문제 개수 : <%= @study.number_of_quiz %></h5>
+  <h5>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h5>
 <% end %>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
