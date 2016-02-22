@@ -12,8 +12,10 @@
 </div>
 <% end %>
 <h6 style="float:right; margin:2.5rem 0 0 0">ViewCount : <%= @nueron.viewcount %></h6>
-<h6 style="clear:both;">풀은 문제 개수 : <%= @study.number_of_quiz %></h6>
-<h6>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h6>
+<% if user_signed_in? %>
+  <h6 style="clear:both;">풀은 문제 개수 : <%= @study.number_of_quiz %></h6>
+  <h6>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h6>
+<% end %>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
 </p>
@@ -92,8 +94,10 @@
   </ul>
 <% end %>
 
-<% if current_user.id == @nueron.user_id %>
-  <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+<% if user_signed_in? %>
+  <% if @nueron.user_id == current_user.id %>
+    <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+  <%end %>
 <%end %>
 
 <br><br><br><br>
