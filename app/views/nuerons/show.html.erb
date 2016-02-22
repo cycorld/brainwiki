@@ -94,8 +94,10 @@
   <% end %>
 </ul>
 
-<% if current_user.id == @nueron.user_id %>
-  <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+<% if user_signed_in? %>
+  <% if @nueron.user_id == current_user.id %>
+    <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+  <%end %>
 <%end %>
 
   <%= link_to '퀴즈 목록 보기', nueron_quizzes_path(@nueron), class: "waves-effect waves-light btn-large" %>
