@@ -18,6 +18,8 @@ class Nueron < ActiveRecord::Base
   validates :title, presence: true
   validates :note, presence: true
 
+  acts_as_taggable
+
   default_scope { where(is_valid: true) }
 
   has_paper_trail

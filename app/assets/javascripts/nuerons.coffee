@@ -46,7 +46,7 @@
 		link = svg.append('svg:g').selectAll('.link').data(bisynapses).enter().append('path').attr('class', 'link').attr('marker-end', 'url(#end)')
 		node = svg.selectAll('.node').data(graph.nuerons).enter().append('g').attr('class', 'node').on('dblclick', click).on('mouseenter', mouseenter).on('mouseleave', mouseleave).call(force.drag)
 		node.append('circle').attr('r', 6).style 'fill', (d) ->
-			color d.user_id
+			color d.tag_list
 		node.append('title').text (d) ->
 			d.title
 		node.append('text').attr('x', 12).attr('dy', '.35em').text (d) ->

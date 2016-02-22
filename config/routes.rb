@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
 
     get 'show/:token' => 'home#show', as: 'show'
+#    get "tags/:tag", to: "nuerons#index", as: :tag
 
     root 'home#index'
   end

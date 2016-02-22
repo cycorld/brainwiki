@@ -89,7 +89,8 @@ class NueronsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nueron_params
-      params.require(:nueron).permit(:title, :vid, :note)
+      #params.require(:nueron).permit(:title, :vid, :note, :tag_list, :tag_list => [])
+      params.require(:nueron).permit(:title, :vid, :note, :tag_list)
     end
 
     def pair_params
