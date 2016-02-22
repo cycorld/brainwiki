@@ -4,6 +4,9 @@
 <script src="http://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script>
 <script src="http://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <h3><%= @nueron.title %></h3>
+<h2><%= @nueron.viewcount %></h2>
+<h3>풀은 문제 개수 : <%= @study.number_of_quiz %></h3>
+<h3>정답률 : (<%= @study.correct_answers %>/<%=@study.number_of_quiz%>)</h3>
 <p>
   by <%= @nueron.user.username %>, <%= @nueron.created_at.in_time_zone('Seoul').strftime('%Y년 %m월 %d일 %H:%M:%S') %>
 </p>
@@ -25,9 +28,14 @@
       <% if @nueron.prev.empty? %>
         <li>선행 뉴런이 없습니다</li>
       <% end %>
-      <% @nueron.prev.each do |n| %>
-        <li><%= link_to n.title, n %></li>
-    <% end %>
+      <% @nueron.passive_links.each do |x| %>
+        <li><%= link_to Nueron.find(x.origin_id).title, weight_create_synapse_path(id: x.id, kind: "passive"), method: :post %></li>
+      <% end %>
+      <!--
+      <%# @nueron.prev.each do |n| %>
+        <li><%#= link_to n.title, n %></li>
+    <%# end %>
+    -->
     </ul>
   </div>
   <div class="col s6">
@@ -36,19 +44,66 @@
       <% if @nueron.next.empty? %>
         <li>후속 뉴런이 없습니다</li>
       <% end %>
-      <% @nueron.next.each do |n| %>
-        <li><%= link_to n.title, n %></li>
-    <% end %>
+      <% @nueron.active_links.each do |x| %>
+        <li><%= link_to Nueron.find(x.next_id).title, weight_create_synapse_path(id: x.id, kind: "active"), method: :post %></li>
+      <% end %>
+        <!--
+     <%# @nueron.next.each do |n| %>
+       <li><%#= link_to n.title, n %></li>
+    <%# end %>
+    -->
     </ul>
   </div>
 </div>
+
+<h4> 퀴즈 목록 </h4>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @quizzes.each do |q| %>
+  <li>
+  <div class="collapsible-header <%=q.id%>" data-id=<%=q.id%>>
+      <table>
+        <tr>
+          <th> Question </th>
+          <th> Maker </th>
+        </tr>
+        <tr>
+          <td style="width:50%; padding:0;"><%= q.question %> </td>
+          <td style="width:50%; padding:0;"><%= q.user.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="collapsible-body" style="padding:1em;">
+      <%= form_for([@nueron, q, @quiz_history]) do |h| %>
+        <b> 질문</b>: <%= q.question %><br>
+        <% q.answers[:array].shuffle.each do |a|%>
+          <p style="padding:1em;">
+          <input class="with-gap" name="answer" type="radio" value=<%=q.answers[:array].index(a) %> id=<%=q.answers[:array].index(a)%><%= a %>>
+          <label for=<%=q.answers[:array].index(a)%><%= a %>><%= a %></label>
+          <input type="hidden" class="hidden_quiz_id" name="quiz_id" value=<%= q.id%>>
+          </p>
+        <% end %>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<% if current_user.id == @nueron.user_id %>
+  <%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
+<%end %>
+
+  <%= link_to '퀴즈 목록 보기', nueron_quizzes_path(@nueron), class: "waves-effect waves-light btn-large" %>
+
+<br><br><br><br>
 
 <div class="row">
   <%= link_to 'Edit', edit_nueron_path(@nueron) %> |
   <%= link_to 'Back', nuerons_path(o: @nueron.token) %>
 </div>
-<%= link_to '퀴즈 만들러 가기', new_nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
-<%#= link_to '퀴즈 풀러 가기', nueron_quiz_path(@nueron), class: "waves-effect waves-light btn-large" %>
 
 <div class="fb-comments" data-href="<%=show_url(@nueron.token)%>" data-numposts="10" data-width="100%"></div>
 

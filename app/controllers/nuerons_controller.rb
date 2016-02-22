@@ -12,8 +12,10 @@ class NueronsController < ApplicationController
   # GET /nuerons/1
   # GET /nuerons/1.json
   def show
-    quiz = Quiz.new
-    @quizzes = Quiz.all
+    @nueron = Nueron.find(params[:id])
+    @quizzes = @nueron.quizzes
+    @quiz_history = QuizHistory.new
+    @study = Studylog.find_by(nueron_id: @nueron.id, user_id: current_user.id)
   end
 
   # GET /nuerons/new
@@ -87,7 +89,8 @@ class NueronsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nueron_params
-      params.require(:nueron).permit(:title, :vid, :note)
+      #params.require(:nueron).permit(:title, :vid, :note, :tag_list, :tag_list => [])
+      params.require(:nueron).permit(:title, :vid, :note, :tag_list)
     end
 
     def pair_params

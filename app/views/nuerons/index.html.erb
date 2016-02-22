@@ -6,6 +6,7 @@
       <th>User</th>
       <th>Title</th>
       <th>Note</th>
+      <th>Tag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
           <img style="width:100px" src="http://i1.ytimg.com/vi/<%=nueron.vid%>/hqdefault.jpg">
         </td>
         <td><%= nueron.note.truncate(20) %></td>
+        <td><%= nueron.tag_list %></td>
         <td><%= link_to '학습하기', '/show/' + nueron.token%></td>
         <td><%= link_to '수정', edit_nueron_path(nueron) %></td>
         <td><%= link_to '삭제', nueron, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,3 +28,4 @@
     <% end %>
   </tbody>
 </table>
+

@@ -13,4 +13,15 @@ class SynapsesController < ApplicationController
     flash[:notice] = "이미 만들어진 시냅스가 있습니다"
     redirect_to '/synapses/new'
   end
+
+  def weight_create
+    @synapse = Synapse.find(params[:id])
+    @synapse.update_attribute("weight", @synapse.weight + 1)
+
+    if params[:kind] == "active"
+      redirect_to nueron_path(@synapse.next_id)
+    else
+      redirect_to nueron_path(@synapse.origin_id)
+    end
+  end
 end

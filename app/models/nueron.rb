@@ -11,11 +11,14 @@ class Nueron < ActiveRecord::Base
   has_many :prev, through: :passive_links, source: :origin
   belongs_to :user
   has_many :quizzes
+  has_many :view_histories
 
   validates :token, uniqueness: true
   validates :user_id, presence: true
   validates :title, presence: true
   validates :note, presence: true
+
+  acts_as_taggable
 
   default_scope { where(is_valid: true) }
 

@@ -19,6 +19,10 @@
     <%= f.text_field :vid %>
     <%= f.label :vid %><br>
   </div>
+  <div class="input-field">
+    <%= f.text_field :tag_list, value: @nueron.tag_list.join(", ") %>
+    <%= f.label :tag %><br>
+  </div>
   <div class="row">
     <div class="col l6 s12">
       <div class="input-field">

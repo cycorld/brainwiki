@@ -1,5 +1,14 @@
+check = {}
+count = 0
 json.nuerons @nuerons do |nueron|
-  json.extract! nueron, :token, :title, :user_id
+  unless check.has_key?(nueron.tag_list)
+    count = count+1
+    check[nueron.tag_list] = count
+    nueron.tag_list = check[nueron.tag_list]
+  else
+    nueron.tag_list = check[nueron.tag_list]
+  end
+  json.extract! nueron, :token, :title, :user_id, :tag_list
   json.uri show_path(nueron.token)
 end
 

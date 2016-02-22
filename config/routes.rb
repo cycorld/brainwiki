@@ -1,15 +1,26 @@
 Rails.application.routes.draw do
+  post 'view_histories/create'
+
+  get 'quiz_histories/create'
+
   scope "(:locale)", locale: /ko|en/ do
     resources :startings
     devise_for :users
 
 
     resources :nuerons do
-      resources :quizzes, only: [:create, :new, :show]
-      get 'quizzes/:id/check' => 'quizzes#check', as: 'check'
+      resources :quizzes, only: [:create, :new, :show, :index] do
+        resources :quiz_histories, only:[:create]
+      end
     end
-    resources :synapses
+    resources :synapses do
+      member do
+        post 'weight_create'
+      end
+    end
+
     get 'show/:token' => 'home#show', as: 'show'
+#    get "tags/:tag", to: "nuerons#index", as: :tag
 
     root 'home#index'
   end

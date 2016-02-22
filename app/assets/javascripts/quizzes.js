@@ -23,10 +23,10 @@ $(document).on('ready page:load', function(){
     $('.sth').html(answerArray);
     $('.sth').html(correctArray);
     $('#answerform').append(
-      $('<input>', { type:'checkbox', class:'answer_checkbox', name:'quiz_correct', value:"true", style:"position:relative; left:0; opacity:1; float:right;"})
+      $('<input>', { type:'checkbox', class:'answer_checkbox', name:'quiz_correct', value:"true", style:"position:relative; margin-top:1.3em; margin-right:10px; left:0; opacity:1; float:left;"})
       );
     $('#answerform').append(
-      $('<input>', { type:'text', class:'foranswer'})
+      $('<input>', { type:'text', class:'foranswer', style:'width:98%'})
       );
   });
 });
