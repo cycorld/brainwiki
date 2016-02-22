@@ -4,4 +4,6 @@ class Synapse < ActiveRecord::Base
   validates :origin_id, presence: true
   validates :next_id, presence: true
   validates :user_id, presence: true
+
+  default_scope { order('id ASC') }
 end

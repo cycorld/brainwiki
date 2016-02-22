@@ -20,7 +20,7 @@ class Nueron < ActiveRecord::Base
 
   acts_as_taggable
 
-  default_scope { where(is_valid: true) }
+  default_scope { where(is_valid: true).order('id ASC') }
 
   has_paper_trail
 
