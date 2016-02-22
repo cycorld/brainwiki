@@ -39,7 +39,7 @@
 			return
 		mouseleave = ->
 			d3.select(this).select('circle').transition().duration(750).attr('r', 6).style 'fill', (d) ->
-				color d.user_id
+				color d.tag_list
 			d3.select(this).select('text').transition().duration(750).attr('x', 12).style('stroke', 'none').style('fill', 'black').style('stroke', 'none').style('font', '0px sans-serif')
 			return
 		force.nodes(nuerons).links(synapses).start()
